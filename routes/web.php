@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages.home');
 });
 Route::get('/profile', function () {
     return view('profiles.index');
@@ -26,3 +26,29 @@ Route::get('/home', function () {
 Route::get('/search', function () {
     return view('pages.search');
 })->name('search');
+Auth::routes();
+
+// Doctor's Routing
+Route::get('dlogin', function () {
+    return view('doctor.login');
+})->name('doctor.login');
+
+Route::get('dregistration', function () {
+    return view('doctor.register');
+})->name('doctor.register');
+
+Route::post('doctorRegistration', [
+    'uses' => 'DoctorController@create',
+    'as' => 'doctorRegistration'
+]);
+
+// hospital's Routing
+
+Route::get('/hlogin', function () {
+    return view('hospital.login');
+})->name('hospital.login');
+
+Route::get('/hregistration', function () {
+    return view('hospital.register');
+})->name('hospital.register');
+

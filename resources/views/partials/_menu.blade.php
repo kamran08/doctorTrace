@@ -8,9 +8,26 @@
       <div class="col-auto">
         <ul class="logo_ul">
           <li class="logo_ul_active"><a href="{{ route('home') }}">HOME</a></li>
-          <li><a href="{{ route('profile') }}">PROFILE</a></li>
+          
           <li><a href="{{ route('search') }}">SEARCH</a></li>
-          <li>ABOUT US</li>
+          @guest
+          <li><a href="{{ route('login') }}">Login</a></li>
+          @if (Route::has('register'))
+          <li><a href="{{ route('register') }}">Register</a></li>
+          @endif
+          @else
+          <li><a href="{{ route('profile') }}">{{ Auth::user()->name }}</a></li>
+          <li><a  href="{{ route('logout') }}"
+            onclick="event.preventDefault();
+                          document.getElementById('logout-form').submit();">
+             {{ __('Logout') }}
+         </a>
+
+         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+             @csrf
+         </form></li>
+          @endguest
+          
         </ul>
       </div>
     </div>
