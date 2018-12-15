@@ -10,13 +10,9 @@
           <li class="logo_ul_active"><a href="{{ route('home') }}">HOME</a></li>
           
           <li><a href="{{ route('search') }}">SEARCH</a></li>
-          @guest
-          <li><a href="{{ route('login') }}">Login</a></li>
-          @if (Route::has('register'))
-          <li><a href="{{ route('register') }}">Register</a></li>
-          @endif
-          @else
-          <li><a href="{{ route('profile') }}">{{ Auth::user()->name }}</a></li>
+          @if (Auth::guard('doctor')->check() || Auth::guard()->check())
+
+          <li><a href="{{ route('profile') }}">{{ (Auth::guard('doctor')->check())? Auth::guard('doctor')->user()->name : Auth::user()->name}}</a></li>
           <li><a  href="{{ route('logout') }}"
             onclick="event.preventDefault();
                           document.getElementById('logout-form').submit();">
@@ -26,7 +22,25 @@
          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
              @csrf
          </form></li>
-          @endguest
+         @else
+
+         <li class="nav-item dropdown">
+          <a id="linkDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+              {{ __('Login') }}
+              <span class="caret"></span>
+          </a>
+
+          <div class="dropdown-menu" aria-labelledby="linkDropdown">
+              <a class="dropdown-item" href="{{ route('login') }}">
+                  {{ __('User') }}
+              </a>
+              <a class="dropdown-item" href="{{ route('doctor.login') }}">
+                  {{ __('Doctor') }}
+              </a>
+          </div>
+      </li>
+         <li><a href="{{ route('register') }}">Register</a></li>
+         @endif
           
         </ul>
       </div>

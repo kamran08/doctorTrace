@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Register as Doctor') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('doctorRegistration') }}">
+                    <form method="POST" action="{{ route('doctor.register.submit') }}">
                         @csrf
                         {{-- name --}}
                         <div class="form-group row">
@@ -60,7 +60,7 @@
                             <label for="phone" class="col-md-4 col-form-label text-md-right">{{ __(' Phone') }}</label>
 
                             <div class="col-md-6">
-                                <input id="phone" type="number" class="form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}" name="phone" value="{{ old('phone') }}" required>
+                                <input id="phone"type="text" class="form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}" name="phone" value="{{ old('phone') }}" required>
 
                                 @if ($errors->has('phone'))
                                     <span class="invalid-feedback" role="alert">
@@ -76,7 +76,13 @@
                             <label for="chamber_location" class="col-md-4 col-form-label text-md-right">{{ __(' Location') }}</label>
 
                             <div class="col-md-6">
-                                <input id="chamber_location" type="text" class="form-control{{ $errors->has('chamber_location') ? ' is-invalid' : '' }}" name="chamber_location" value="{{ old('chamber_location') }}" required>
+                                
+                                <select id="chamber_location" class="form-control{{ $errors->has('chamber_location') ? ' is-invalid' : '' }}" name="chamber_location" value="{{ old('chamber_location') }}" required>
+                                        <option  disabled selected>Choose a City</option>
+                                        <option value="Sylhet">Sylhet</option>
+                                        <option value="Dhaka">Dhaka</option>
+                                        <option value="Chattagram">Chattagram</option>
+                                      </select>
 
                                 @if ($errors->has('chamber_location'))
                                     <span class="invalid-feedback" role="alert">

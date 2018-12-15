@@ -37,13 +37,17 @@ Route::get('dregistration', function () {
     return view('doctor.register');
 })->name('doctor.register');
 
+
 Route::post('doctorRegistration', [
     'uses' => 'DoctorController@create',
-    'as' => 'doctorRegistration'
+    'as' => 'doctor.register.submit'
 ]);
+Route::post('/dlogin', 'Auth\doctorLoginController@login')->name('doctor.login.submit');
+Route::get('/dprofile', 'DoctorController@index')->name('doctor.home');
+
 
 // hospital's Routing
-
+  
 Route::get('/hlogin', function () {
     return view('hospital.login');
 })->name('hospital.login');

@@ -4,6 +4,9 @@ namespace App\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Auth\AuthenticationException;
+use Request;
+use Response;
 
 class Handler extends ExceptionHandler
 {
@@ -13,8 +16,13 @@ class Handler extends ExceptionHandler
      * @var array
      */
     protected $dontReport = [
-        //
-    ];
+        \Illuminate\Auth\AuthenticationException::class,
+        \Illuminate\Auth\Access\AuthorizationException::class,
+        \Symfony\Component\HttpKernel\Exception\HttpException::class,
+        \Illuminate\Database\Eloquent\ModelNotFoundException::class,
+        \Illuminate\Session\TokenMismatchException::class,
+        \Illuminate\Validation\ValidationException::class,
+   ];
 
     /**
      * A list of the inputs that are never flashed for validation exceptions.
@@ -43,9 +51,31 @@ class Handler extends ExceptionHandler
      * @param  \Illuminate\Http\Request  $request
      * @param  \Exception  $exception
      * @return \Illuminate\Http\Response
+     * Convert an authentication exception into an unauthenticated response.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Auth\AuthenticationException  $exception
+     * @return \Illuminate\Http\Response
      */
     public function render($request, Exception $exception)
     {
+        $class = get_class($exception);
+    
+        switch($class) {
+            case 'Illuminate\Auth\AuthenticationException':
+                $guard = array_get($exception->guards(), 0);
+                switch ($guard) {
+                    case 'doctor':
+                        $login = 'doctor.login';
+                        break;
+                    default:
+                        $login = 'login';
+                        break;
+                }
+    
+                return redirect()->route($login);
+        }
+    
         return parent::render($request, $exception);
     }
-}
+    }

@@ -6,6 +6,6 @@
   <!-- profile pic -->
   <div class="profile_pic_main">
     <img class="profile_pic" src="img/V90.jpg" alt="" title="">
-    <p class="profile_name">Hussain Shipu</p>
+    <p class="profile_name">{{ (Auth::guard('doctor')->check())? Auth::guard('doctor')->user()->name : 'Hussain Shipu'}}</p>
   </div> <!-- profile pic -->
 </div>

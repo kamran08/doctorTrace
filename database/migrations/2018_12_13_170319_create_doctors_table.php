@@ -18,7 +18,7 @@ class CreateDoctorsTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('address');
-            $table->string('phone')->unique();
+            $table->string('phone');
             $table->string('chamber_location');
             $table->string('sitting_time');
             $table->timestamp('email_verified_at')->nullable();
