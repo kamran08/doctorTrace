@@ -11,7 +11,7 @@
 		<div class="container">
 			<div class="row">
 				<!-- tabs -->
-				@include('profiles.index._tabs')
+				@include('profiles.tabs.about')
 				<!-- tabs -->
 
 				<!-- sidebar -->

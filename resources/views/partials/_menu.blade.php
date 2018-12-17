@@ -21,7 +21,8 @@
 
          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
              @csrf
-         </form></li>
+         </form>
+        </li>
          @else
 
          <li class="nav-item dropdown">
@@ -38,7 +39,7 @@
                   {{ __('Doctor') }}
               </a>
           </div>
-      </li>
+        </li>
          <li><a href="{{ route('register') }}">Register</a></li>
          @endif
           

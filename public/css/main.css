@@ -69,10 +69,6 @@ img{
 .logo_ul_active{
 	color:#000 !important;
 }
-.logo_ul a {
-    text-decoration: none;
-    color: #696868;
-}
 /*========= 2.menu =======*/
 
 /*========= 3.home =======*/
@@ -306,7 +302,7 @@ img{
 .profile_name {
     color: #fff;
     font-size: 17px;
-    font-weight: 500;
+    font-weight: 900;
     margin: 3px 00 0;
 }
 .profile_main {
@@ -362,7 +358,7 @@ img{
 .profile_tabs_menu_ul{}
 .profile_tabs_menu_ul li {
     display: inline-block;
-    font-weight: 500;
+    font-weight: 900;
     transition: .3s all ease;
     padding: 10px 16px;
     cursor: pointer;
@@ -377,9 +373,7 @@ img{
 .profile_tabs_components {
     padding: 20px 20px;
 }
-.doc_profile_tabs{
-    display: none;
-}
+.doc_profile_tabs{}
 .doc_profile_tabs_img {
     width: 109px;
     padding-right: 15px;
@@ -392,7 +386,7 @@ img{
 }
 .doc_profile_tabs_details_name {
     font-size: 23px;
-    font-weight: 500;
+    font-weight: 800;
 }
 .doc_profile_tabs_details_deg {
     font-size: 14px;
@@ -415,6 +409,10 @@ img{
     font-size: 14px;
     padding: 5px 43px;
     border-radius: 2px;
+}
+.doc_info_tabs {}
+.info {
+    font-weight: 400;
 }
 .doc_feedback_tabs{}
 .feed {

@@ -28,6 +28,12 @@ class DoctorController extends Controller
     //     return redirect()->route("profile");
     // }
 
+    // Doctor dashboard
+    public function dashboard()
+    {
+        return view('doctor.pages.dashboard');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
