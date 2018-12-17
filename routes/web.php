@@ -43,7 +43,9 @@ Route::post('doctorRegistration', [
     'as' => 'doctor.register.submit'
 ]);
 Route::post('/dlogin', 'Auth\doctorLoginController@login')->name('doctor.login.submit');
-Route::get('/dprofile', 'DoctorController@index')->name('doctor.home');
+Route::get('/dprofile', function () {
+    return view('profiles.index');
+})->name('doctor.home');
 
 
 // hospital's Routing

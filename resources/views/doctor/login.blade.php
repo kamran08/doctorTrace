@@ -1,6 +1,17 @@
 @extends('main')
 
 @section('container')
+@if (Session::has("info"))
+    <div class="container mt-4">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <p class="alert alert-success text-center " >{{ Session::get('info') }}</p>
+            </div>
+        </div>
+    </div>
+@endif
+
+
 <div class="container mt-4">
     <div class="row justify-content-center">
         <div class="col-md-8">

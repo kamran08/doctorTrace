@@ -97,7 +97,7 @@
                             <label for="sitting_time" class="col-md-4 col-form-label text-md-right">{{ __(' Sitting Time') }}</label>
 
                             <div class="col-md-6">
-                                <input id="sitting_time" type="text" class="form-control{{ $errors->has('sitting_time') ? ' is-invalid' : '' }}" name="sitting_time" value="{{ old('sitting_time') }}" required>
+                                <input id="sitting_time" type="time" class="form-control{{ $errors->has('sitting_time') ? ' is-invalid' : '' }}" name="sitting_time" value="{{ old('sitting_time') }}" required>
 
                                 @if ($errors->has('sitting_time'))
                                     <span class="invalid-feedback" role="alert">
@@ -129,6 +129,7 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                             </div>
                         </div>
+                        
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">

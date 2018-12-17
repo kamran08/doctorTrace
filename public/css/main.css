@@ -518,9 +518,12 @@ img{
     color: #888;
     font-weight: 500;
 }
-.{}
-.{}
-.{}
+
+/*========= On hover Menu Dropdown =======*/
+
+.dropdown:hover>.dropdown-menu {
+    display: block !important;
+  }
 /*========= 4.profile =======*/
 
 
