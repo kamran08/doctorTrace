@@ -40,22 +40,25 @@ Route::get('dregistration', function () {
 
 
 Route::post('doctorRegistration', [
-    'uses' => 'DoctorController@create',
+    'uses' => 'Auth\DoctorRegisterController@create',
     'as' => 'doctor.register.submit'
 ]);
 Route::post('/dlogin', 'Auth\doctorLoginController@login')->name('doctor.login.submit');
-Route::get('/dprofile', function () {
-    return view('profiles.index');
-})->name('doctor.home');
+
 
 // doctor dashboard
-Route::get('/ddashboard', 'DoctorController@dashboard')->name('doctor.dashboard');
+Route::get('ddashboard', [
+    'uses' => 'DoctorController@dashboard',
+    //'middleware' => ['auth:doctor'],
+    'as' => 'doctor.dashboard'
+]);
+
 Route::get('/dfinished', function () {
     return view('doctor.pages.finishedappoint');
 });
 Route::get('/dprofile', function () {
     return view('doctor.pages.profile');
-});
+})->name('doctor.home');
 
 
 
