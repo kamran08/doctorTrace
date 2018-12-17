@@ -29,6 +29,7 @@ Route::get('/search', function () {
 Auth::routes();
 
 // Doctor's Routing
+
 Route::get('dlogin', function () {
     return view('doctor.login');
 })->name('doctor.login');
@@ -44,6 +45,16 @@ Route::post('doctorRegistration', [
 ]);
 Route::post('/dlogin', 'Auth\doctorLoginController@login')->name('doctor.login.submit');
 Route::get('/dprofile', 'DoctorController@index')->name('doctor.home');
+
+// doctor dashboard
+Route::get('/ddashboard', 'DoctorController@dashboard')->name('doctor.dashboard');
+Route::get('/dfinished', function () {
+    return view('doctor.pages.finishedappoint');
+});
+Route::get('/dprofile', function () {
+    return view('doctor.pages.profile');
+});
+
 
 
 // hospital's Routing

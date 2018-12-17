@@ -69,10 +69,6 @@ img{
 .logo_ul_active{
 	color:#000 !important;
 }
-.logo_ul a {
-    text-decoration: none;
-    color: #696868;
-}
 /*========= 2.menu =======*/
 
 /*========= 3.home =======*/
@@ -377,9 +373,7 @@ img{
 .profile_tabs_components {
     padding: 20px 20px;
 }
-.doc_profile_tabs{
-    display: none;
-}
+.doc_profile_tabs{}
 .doc_profile_tabs_img {
     width: 109px;
     padding-right: 15px;
@@ -415,6 +409,10 @@ img{
     font-size: 14px;
     padding: 5px 43px;
     border-radius: 2px;
+}
+.doc_info_tabs {}
+.info {
+    font-weight: 400;
 }
 .doc_feedback_tabs{}
 .feed {
