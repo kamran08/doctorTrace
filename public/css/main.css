@@ -302,7 +302,7 @@ img{
 .profile_name {
     color: #fff;
     font-size: 17px;
-    font-weight: 500;
+    font-weight: 900;
     margin: 3px 00 0;
 }
 .profile_main {
@@ -358,7 +358,7 @@ img{
 .profile_tabs_menu_ul{}
 .profile_tabs_menu_ul li {
     display: inline-block;
-    font-weight: 500;
+    font-weight: 900;
     transition: .3s all ease;
     padding: 10px 16px;
     cursor: pointer;
@@ -386,7 +386,7 @@ img{
 }
 .doc_profile_tabs_details_name {
     font-size: 23px;
-    font-weight: 500;
+    font-weight: 800;
 }
 .doc_profile_tabs_details_deg {
     font-size: 14px;
