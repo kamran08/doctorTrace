@@ -11,8 +11,19 @@
 		<div class="container">
 			<div class="row">
 				<!-- tabs -->
-				@include('profiles.tabs.about')
+				{{-- @include('profiles.tabs.about') --}}
 				<!-- tabs -->
+				<div class="col-12 col-sm-9 col-md-9">
+						
+							<div id="app">
+								
+								<master :gid="{'doctor':{{$doctor}},'user_id':{{Auth::user()->id}}}" >
+									
+								
+								</master>
+							</div>
+						
+					</div>
 
 				<!-- sidebar -->
 				@include('profiles.index._sidebar')

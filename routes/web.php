@@ -14,9 +14,7 @@
 Route::get('/', function () {
     return view('pages.home');
 });
-Route::get('/profile', function () {
-    return view('profiles.index');
-})->name('profile');
+
 Route::get('/main', function () {
     return view('main');
 });
@@ -45,6 +43,10 @@ Route::post('doctorRegistration', [
 ]);
 Route::post('/dlogin', 'Auth\doctorLoginController@login')->name('doctor.login.submit');
 
+Route::get('profile/{id}', [
+    'uses' => 'HomeController@doctorProfile',
+    'as' => 'profile'
+]);
 
 // doctor dashboard
 Route::get('ddashboard', [
@@ -72,3 +74,9 @@ Route::get('/hregistration', function () {
     return view('hospital.register');
 })->name('hospital.register');
 
+// AppointMent's Routing
+
+Route::post('makeAppointment', [
+    'uses' => 'AppointmentController@create',
+    'as' => 'makeAppointment'
+]);

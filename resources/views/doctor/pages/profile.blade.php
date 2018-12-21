@@ -24,29 +24,34 @@
                               <div class="text-center card-box">
                                   <div class="member-card">
                                       <div class="thumb-xl member-thumb m-b-10 center-block">
-                                          <img src="doctor/img/avatar-1.jpg" class="img-circle img-thumbnail" alt="profile-image">
+                                            <div class="img__wrap"><a href="#" >
+                                                <img src="doctor/img/12.jpg" class="img-circle img-thumbnail img__wrap" alt="profile-image">
+                                                    <div class="img__description_layer">
+                                                        <p class="img__description">update</p>
+                                                    </div>
+                                            </a></div>
                                           <i class="mdi mdi-star-circle member-star text-success" title="verified user"></i>
                                       </div>
 
                                       <div class="">
-                                          <h4 class="m-b-5">Dr. Parthddathi Dutta Ray</h4>
+                                          <h4 class="m-b-5">{{Auth::guard('doctor')->user()->name}}</h4>
                                           <p class="text-muted">@B.Sc, MBBS, DDVL, MD-Dermatology</p>
                                       </div>
 
                                       <p class="text-muted font-13 m-t-20">
-                                          Hi I'm Johnathn Deo,has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.
+                                          Hi I'm {{Auth::guard('doctor')->user()->name}},has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.
                                       </p>
 
                                       <hr/>
 
                                       <div class="text-left">
-                                          <p class="text-muted font-13"><strong>Full Name :</strong> <span class="m-l-15">Parthddathi Dutta Ray</span></p>
+                                          <p class="text-muted font-13"><strong>Full Name :</strong> <span class="m-l-15">{{Auth::guard('doctor')->user()->name}}</span></p>
 
-                                          <p class="text-muted font-13"><strong>Mobile :</strong><span class="m-l-15">(123) 123 1234</span></p>
+                                          <p class="text-muted font-13"><strong>Mobile :</strong><span class="m-l-15">{{Auth::guard('doctor')->user()->phone}}</span></p>
 
-                                          <p class="text-muted font-13"><strong>Email :</strong> <span class="m-l-15">coderthemes@gmail.com</span></p>
+                                          <p class="text-muted font-13"><strong>Email :</strong> <span class="m-l-15">{{Auth::guard('doctor')->user()->email}}</span></p>
 
-                                          <p class="text-muted font-13"><strong>Location :</strong> <span class="m-l-15">USA</span></p>
+                                          <p class="text-muted font-13"><strong>Location :</strong> <span class="m-l-15">{{Auth::guard('doctor')->user()->address}},{{Auth::guard('doctor')->user()->chamber_location}}</span></p>
                                       </div>
 
                                       <ul class="social-links list-inline m-t-30">

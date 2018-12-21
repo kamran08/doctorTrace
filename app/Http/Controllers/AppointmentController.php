@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Appointment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class AppointmentController extends Controller
 {
@@ -22,9 +23,21 @@ class AppointmentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
+    public function create(Request $request){
+
+        Log::info('I am Here: '.$request->doctor_id);
+        $app = new Appointment([
+            'doctor_id'=> $request->doctor_id,
+            'user_id'=> $request->user_id,
+            'date'=> $request->date,
+
+        ]);
+        $app->save();
+
+       
+        return response()->json([
+            'message' => 'Request for Appointment ! Please wait from Admin Confirmation.',
+        ],200);
     }
 
     /**

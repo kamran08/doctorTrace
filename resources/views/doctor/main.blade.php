@@ -17,6 +17,7 @@
         <link href="doctor/css/pages.css" rel="stylesheet" type="text/css" />
         <link href="doctor/css/menu.css" rel="stylesheet" type="text/css" />
         <link href="doctor/css/responsive.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="css/main.css">  
 
     </head>
 

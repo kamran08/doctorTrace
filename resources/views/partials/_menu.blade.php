@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row align-items-center">
       <div class="col-auto">
-        <img class="logo" src="img/logo.png" alt="" title="">
+        <img class="logo" src="{{ asset('img/logo.png') }}" alt="" title="">
       </div>
       <div class="col"></div>
       <div class="col-auto">
@@ -12,7 +12,7 @@
           <li><a href="{{ route('search') }}">SEARCH</a></li>
           @if (Auth::guard('doctor')->check() || Auth::guard()->check())
 
-          <li><a href="{{ route('profile') }}">{{ (Auth::guard('doctor')->check())? Auth::guard('doctor')->user()->name : Auth::user()->name}}</a></li>
+          <li><a href="{{ route('profile', ['id' => 1 ]) }}">{{ (Auth::guard('doctor')->check())? Auth::guard('doctor')->user()->name : Auth::user()->name}}</a></li>
           <li><a  href="{{ route('logout') }}"
             onclick="event.preventDefault();
                           document.getElementById('logout-form').submit();">
