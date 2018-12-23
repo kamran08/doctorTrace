@@ -4,7 +4,7 @@
             <!-- items -->
         <div class="doc_profile_tabs dis">
             <div class="doc_profile_tabs_img">
-            <img class="doc_profile_tabs_image" src="img/V90.jpg" alt="" title="">
+            <img class="doc_profile_tabs_image" src="http://docappoint.test:8080/img/V90.jpg" alt="" title="">
             </div>
 
             <div class="doc_profile_tabs_details flex_space">
@@ -102,7 +102,10 @@ export default {
 			           if(info.status===200){
 
                    this.$store.dispatch('user/Msg_UPDATED',info.data.message);
-			          }
+                }
+                else{
+                  let msg = "Error : "+info
+                }
                 $(this.$refs.vuemodal).modal('hide') 
         }
     },

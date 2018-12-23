@@ -28,13 +28,16 @@ Auth::routes();
 
 // Doctor's Routing
 
-Route::get('dlogin', function () {
-    return view('doctor.login');
-})->name('doctor.login');
-
-Route::get('dregistration', function () {
-    return view('doctor.register');
-})->name('doctor.register');
+Route::get('dlogin', [
+    'uses' => 'HomeController@showDLogin',
+    'middleware' => ['guest'],
+    'as' => 'doctor.login'
+]);
+Route::get('dregistration', [
+    'uses' => 'HomeController@showDRegistration',
+    'middleware' => ['guest'],
+    'as' => 'doctor.register'
+]);
 
 
 Route::post('doctorRegistration', [
@@ -53,6 +56,12 @@ Route::get('ddashboard', [
     'uses' => 'DoctorController@dashboard',
     //'middleware' => ['auth:doctor'],
     'as' => 'doctor.dashboard'
+]);
+
+Route::post('appointmentSearchByDate', [
+    'uses' => 'DoctorController@appointmentSearchByDate',
+    //'middleware' => ['auth:doctor'],
+    'as' => 'doctor.appointmentSearchByDate'
 ]);
 
 Route::get('/dfinished', function () {
@@ -76,7 +85,7 @@ Route::get('/hregistration', function () {
 
 // AppointMent's Routing
 
-Route::post('makeAppointment', [
+Route::post('/makeAppointment', [
     'uses' => 'AppointmentController@create',
     'as' => 'makeAppointment'
 ]);

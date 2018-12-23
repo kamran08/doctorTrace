@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Doctor;
+use App\Appointment;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
@@ -29,10 +31,17 @@ class DoctorController extends Controller
     // }
 
     // Doctor dashboard
-    public function dashboard()
-    {
+    public function dashboard(){
+
+        // $appointment = Appointment::where([['doctor_id', 1],['date', '2018-12-22']])->orderBy('created_at', 'asc')
+        //                             ->join('users', 'users.id', '=', 'user_id')
+        //                             ->get();
+        // $appointment = Appointment::where('date', '2018-12-22')->orderBy('created_at', 'asc')
+        //                             ->get();
+
+       $appointment= $this->dashBoardFetchData(date('Y-m-d'));
         
-        return view('doctor.pages.dashboard');
+        return view('doctor.pages.dashboard', ['appointment' => $appointment]);
     }
 
     /**
@@ -101,5 +110,29 @@ class DoctorController extends Controller
     public function destroy(Doctor $doctor)
     {
         //
+    }
+
+    public function appointmentSearchByDate(Request $request){
+
+     
+
+        $appointment= $this->dashBoardFetchData($request->date);
+
+        return view('doctor.pages.dashboard', ['appointment' => $appointment,'date'=>$request->date]);
+
+    }
+
+    public function dashBoardFetchData($date){
+
+        $appointment = DB::table('appointments')
+        ->join('users', 'users.id', '=', 'appointments.user_id')
+        ->select('appointments.*', 'users.name', 'users.email')
+        ->where([['appointments.doctor_id', 1],['appointments.date', $date]])
+        ->orderBy('appointments.created_at', 'asc')
+        ->get();
+        Log::info('I am Date: '.$date);
+        Log::info('I am Data: '.$appointment);
+        return $appointment;
+
     }
 }

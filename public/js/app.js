@@ -48330,7 +48330,7 @@ Vue.use(__WEBPACK_IMPORTED_MODULE_0_vue_router__["a" /* default */]);
 /* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_0_vue_router__["a" /* default */]({
   mode: 'history',
   routes: [{
-    path: '/profile/:id',
+    path: '/profile',
     name: 'About',
     component: __WEBPACK_IMPORTED_MODULE_1__components_profileTabs_AboutTab___default.a
   }, {
@@ -51121,7 +51121,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
   methods: {
     makeAppointment: function () {
       var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
-        var AuthData, info;
+        var AuthData, info, msg;
         return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
@@ -51144,6 +51144,8 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                 if (info.status === 200) {
 
                   this.$store.dispatch('user/Msg_UPDATED', info.data.message);
+                } else {
+                  msg = "Error : " + info;
                 }
                 $(this.$refs.vuemodal).modal('hide');
 
@@ -52069,7 +52071,11 @@ var staticRenderFns = [
     return _c("div", { staticClass: "doc_profile_tabs_img" }, [
       _c("img", {
         staticClass: "doc_profile_tabs_image",
-        attrs: { src: "img/V90.jpg", alt: "", title: "" }
+        attrs: {
+          src: "http://docappoint.test:8080/img/V90.jpg",
+          alt: "",
+          title: ""
+        }
       })
     ])
   },

@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\Auth;
 
 class DoctorLoginController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('guest:doctor')->except('logout');
+    }
     protected function guard(){
         return Auth::guard('doctor');
     }
@@ -28,8 +32,5 @@ class DoctorLoginController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('guest:doctor')->except('logout');
-    }
+  
 }

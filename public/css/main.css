@@ -576,7 +576,9 @@ img{
     display: block;
     background: #fff;
 }
-
+.panel-heading{
+    padding-bottom: 30px;
+}
 /* router */
 
 

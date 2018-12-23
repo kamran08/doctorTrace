@@ -73,46 +73,55 @@
               <div class="col-md-12">
                   <div class="panel panel-color panel-info">
                       <div class="panel-heading">
-                          <h3 class="panel-title">Recent Users</h3>
+                          <h5 class="panel-title" style="float:left;">Appointments</h5>
+                          <div class="form-group">
+                              <form method="POST" name="SearchByDate" action="{{ route('doctor.appointmentSearchByDate') }}" >
+                              <input type="date" class="form-control text-white" value="{{ isset($date)? $date : date('Y-m-d')}}" onchange="SearchByDate.submit()" name='date'>
+                                @csrf
+                              </form>
+                            </div>
                       </div>
                       <div class="panel-body">
                           <div class="table-responsive">
                               <table class="table table table-hover m-0">
                                   <thead>
                                       <tr>
-                                          <th></th>
-                                          <th>User Name</th>
+                                          <th>Serial No</th>
+                                          <th>patient Name</th>
                                           <th>Phone</th>
-                                          <th>Location</th>
                                           <th>Date</th>
+                                          <th>Status</th>
                                       </tr>
                                   </thead>
                                   <tbody>
+                                    @php ($a = 0)
+                                      @foreach ($appointment as $item)
+                                      @php ($a++)
+                                     
                                     <tr>
                                       <th>
-                                          <span class="avatar-sm-box bg-primary">C</span>
+                                      <span class="avatar-sm-box bg-success">{{$a}}</span>
                                       </th>
                                       <td>
-                                          <h5 class="m-0">Craig Hause</h5>
+                                          <h5 class="m-0">{{$item->name}}</h5>
                                           <p class="m-0 text-muted font-13"><small>Programmer</small></p>
                                       </td>
-                                      <td>+89 345 6789</td>
-                                      <td>Canada</td>
-                                      <td>29/07/2016</td>
+                                      <td>{{$item->email}}</td>
+                                      <td>{{$item->date}}</td>
+                                      @if ($item->status == 1)
+                                      <td><button type="button" name='change' class="btn btn-success">Approved</button></td>
+                                      @else
+                                      <form  name="approveAppointment" action="{{ route('doctor.approveAppointment') }}">
+                                        <input type='hidden' name='id' value="{{$item->id}}">
+                                      <td><button type="button" name='change' class="btn btn-danger">Click Here to Approve</button></td>
+                                      @csrf
+                                      </form>
+                                      @endif
+                                      
+                                      
+                                      
                                   </tr>
-
-                                  <tr>
-                                      <th>
-                                          <span class="avatar-sm-box bg-pink">B</span>
-                                      </th>
-                                      <td>
-                                          <h5 class="m-0">Bret Weaver</h5>
-                                          <p class="m-0 text-muted font-13"><small>Web designer</small></p>
-                                      </td>
-                                      <td>+00 567 890</td>
-                                      <td>USA</td>
-                                      <td>20/07/2016</td>
-                                  </tr>
+                                  @endforeach
 
                                   </tbody>
                               </table>

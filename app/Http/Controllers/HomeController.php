@@ -33,4 +33,12 @@ class HomeController extends Controller
         
         return view('profiles.index', ['doctor' => $doctor]);
     }
+    public function showDLogin(){
+  
+        return view('doctor.login');
+    }
+    public function showDRegistration(){
+
+        return view('doctor.register');
+    }
 }
