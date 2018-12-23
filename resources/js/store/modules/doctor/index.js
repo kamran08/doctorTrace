@@ -4,7 +4,9 @@ import mutations from './mutations';
 
 const state = {
   doctorInfo : [],
-  LinkFlagTab: 1,
+  appointmentInfo : [],
+  LinkFlagTab: 2,
+
 
  
  

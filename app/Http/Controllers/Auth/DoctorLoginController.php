@@ -26,7 +26,7 @@ class DoctorLoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/dprofile';
+    protected $redirectTo = '/ddashboard';
     /**
      * Create a new controller instance.
      *

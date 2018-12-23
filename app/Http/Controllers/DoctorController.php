@@ -41,6 +41,9 @@ class DoctorController extends Controller
         //                             ->get();
 
        $appointment= $this->dashBoardFetchData(date('Y-m-d'));
+       Log::info('I am AppointmentInfo: '.$appointment);
+
+
         
         return view('doctor.pages.dashboard', ['appointment' => $appointment]);
     }
@@ -115,11 +118,28 @@ class DoctorController extends Controller
 
     public function appointmentSearchByDate(Request $request){
 
-     
 
         $appointment= $this->dashBoardFetchData($request->date);
 
-        return view('doctor.pages.dashboard', ['appointment' => $appointment,'date'=>$request->date]);
+    //    return view('doctor.pages.dashboard', ['appointment' => $appointment,'date'=>$request->date]);
+        return response()->json([
+            'appointment' => $appointment,
+        ],200);
+
+    }
+    public function updateStatus(Request $request){
+
+        $appointmentinfo = Appointment::find($request->id);
+        $appointmentinfo->status = 1;
+        $appointmentinfo->save();
+
+
+        $appointment= $this->dashBoardFetchData($request->date);
+
+    //    return view('doctor.pages.dashboard', ['appointment' => $appointment,'date'=>$request->date]);
+        return response()->json([
+            'appointment' => $appointment,
+        ],200);
 
     }
 

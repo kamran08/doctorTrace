@@ -48,6 +48,7 @@ Route::post('/dlogin', 'Auth\doctorLoginController@login')->name('doctor.login.s
 
 Route::get('profile/{id}', [
     'uses' => 'HomeController@doctorProfile',
+    'middleware' => ['auth'],
     'as' => 'profile'
 ]);
 
@@ -58,10 +59,15 @@ Route::get('ddashboard', [
     'as' => 'doctor.dashboard'
 ]);
 
-Route::post('appointmentSearchByDate', [
+Route::post('/appointmentSearchByDate', [
     'uses' => 'DoctorController@appointmentSearchByDate',
     //'middleware' => ['auth:doctor'],
     'as' => 'doctor.appointmentSearchByDate'
+]);
+Route::post('/updateStatus', [
+    'uses' => 'DoctorController@updateStatus',
+    //'middleware' => ['auth:doctor'],
+    'as' => 'doctor.updateStatus'
 ]);
 
 Route::get('/dfinished', function () {

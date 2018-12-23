@@ -44,6 +44,7 @@ export default  {
        user_id: 'user/user_id',
        SuccessMsg: 'user/getMsg',
        LinkFlagTab: 'doctor/TabInfo',
+       appointmentInfo: 'doctor/appointmentInfo',
 
 }),
 }
