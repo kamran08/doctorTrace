@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
 
 class DoctorController extends Controller
 {
@@ -124,10 +125,13 @@ class DoctorController extends Controller
 
     public function dashBoardFetchData($date){
 
+       $id= Auth::guard('doctor')->user()->id;
+       Log::info('I am id: '.$id);
+
         $appointment = DB::table('appointments')
         ->join('users', 'users.id', '=', 'appointments.user_id')
         ->select('appointments.*', 'users.name', 'users.email')
-        ->where([['appointments.doctor_id', 1],['appointments.date', $date]])
+        ->where([['appointments.doctor_id', $id],['appointments.date', $date]])
         ->orderBy('appointments.created_at', 'asc')
         ->get();
         Log::info('I am Date: '.$date);

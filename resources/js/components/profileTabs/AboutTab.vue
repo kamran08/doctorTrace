@@ -89,26 +89,24 @@ export default {
     
    methods: {
 
-      async  makeAppointment(){
-                console.log("i am here");
-
-                let AuthData = {
-                'doctor_id':this.doctor.id,
-                'user_id':this.user_id,
-                'date':this.date,
-                }
-                console.log(AuthData);
-                 const info = await this.callApi('post', 'makeAppointment',AuthData)
-			           if(info.status===200){
-
-                   this.$store.dispatch('user/Msg_UPDATED',info.data.message);
-                }
-                else{
-                  let msg = "Error : "+info
-                }
-                $(this.$refs.vuemodal).modal('hide') 
-        }
-    },
+    async  makeAppointment(){
+      console.log("i am here");
+      let AuthData = {
+        'doctor_id':this.doctor.id,
+        'user_id':this.user_id,
+        'date':this.date,
+      }
+      console.log(AuthData);
+      const info = await this.callApi('post', '/makeAppointment',AuthData)
+			if(info.status===200){
+        this.$store.dispatch('user/Msg_UPDATED',info.data.message);
+      }
+      else{
+        let msg = "Error : "+info
+      }
+      $(this.$refs.vuemodal).modal('hide') 
+    }
+  },
 	
 }
 </script>

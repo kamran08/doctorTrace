@@ -1,4 +1,5 @@
 const doctorInfo = state => state.doctorInfo;
+const TabInfo = state => state.LinkFlagTab;
 
 
 
@@ -7,5 +8,6 @@ const doctorInfo = state => state.doctorInfo;
 
 export default {
   doctorInfo,
+  TabInfo,
   
 };

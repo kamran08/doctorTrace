@@ -57,6 +57,10 @@
             <!-- ============================================================== -->
             
             @yield('container')
+            <!-- <dashBoard/> -->
+									
+								
+								
 
             <!-- ============================================================== -->
             <!-- End Right content here -->
@@ -66,7 +70,8 @@
         </div>
         <!-- END wrapper -->
 
-
+        <!-- Vue js  -->
+        <script src="{{ asset('js/app.js') }}"></script>
 
         <!-- jQuery  -->
         <script src="doctor/js/jquery.min.js"></script>
@@ -93,6 +98,7 @@
         <!-- App js -->
         <script src="doctor/js/jquery.core.js"></script>
         <script src="doctor/js/jquery.app.js"></script>
+        
 
         
 

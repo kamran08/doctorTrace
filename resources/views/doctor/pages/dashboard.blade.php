@@ -111,7 +111,7 @@
                                       @if ($item->status == 1)
                                       <td><button type="button" name='change' class="btn btn-success">Approved</button></td>
                                       @else
-                                      <form  name="approveAppointment" action="{{ route('doctor.approveAppointment') }}">
+                                      <form  name="approveAppointment" >
                                         <input type='hidden' name='id' value="{{$item->id}}">
                                       <td><button type="button" name='change' class="btn btn-danger">Click Here to Approve</button></td>
                                       @csrf

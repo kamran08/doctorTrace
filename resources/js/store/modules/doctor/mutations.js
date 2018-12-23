@@ -1,6 +1,9 @@
 const Doctor_UPDATED = (state,data) => {   
             state.doctorInfo=data;
           };
+const Tab_UPDATED = (state,data) => {   
+            state.LinkFlagTab=data;
+          };
  
 
 
@@ -8,5 +11,6 @@ const Doctor_UPDATED = (state,data) => {
 
 export default {
   Doctor_UPDATED,
+  Tab_UPDATED,
 
 };

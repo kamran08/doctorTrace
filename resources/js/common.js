@@ -43,6 +43,7 @@ export default  {
        doctor: 'doctor/doctorInfo',
        user_id: 'user/user_id',
        SuccessMsg: 'user/getMsg',
+       LinkFlagTab: 'doctor/TabInfo',
 
 }),
 }
