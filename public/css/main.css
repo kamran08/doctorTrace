@@ -69,10 +69,6 @@ img{
 .logo_ul_active{
 	color:#000 !important;
 }
-.logo_ul a {
-    text-decoration: none;
-    color: #696868;
-}
 /*========= 2.menu =======*/
 
 /*========= 3.home =======*/
@@ -306,7 +302,7 @@ img{
 .profile_name {
     color: #fff;
     font-size: 17px;
-    font-weight: 500;
+    font-weight: 900;
     margin: 3px 00 0;
 }
 .profile_main {
@@ -362,7 +358,7 @@ img{
 .profile_tabs_menu_ul{}
 .profile_tabs_menu_ul li {
     display: inline-block;
-    font-weight: 500;
+    font-weight: 900;
     transition: .3s all ease;
     padding: 10px 16px;
     cursor: pointer;
@@ -377,9 +373,7 @@ img{
 .profile_tabs_components {
     padding: 20px 20px;
 }
-.doc_profile_tabs{
-    display: none;
-}
+.doc_profile_tabs{}
 .doc_profile_tabs_img {
     width: 109px;
     padding-right: 15px;
@@ -392,7 +386,7 @@ img{
 }
 .doc_profile_tabs_details_name {
     font-size: 23px;
-    font-weight: 500;
+    font-weight: 800;
 }
 .doc_profile_tabs_details_deg {
     font-size: 14px;
@@ -415,6 +409,10 @@ img{
     font-size: 14px;
     padding: 5px 43px;
     border-radius: 2px;
+}
+.doc_info_tabs {}
+.info {
+    font-weight: 400;
 }
 .doc_feedback_tabs{}
 .feed {
@@ -526,6 +524,62 @@ img{
   }
 /*========= 4.profile =======*/
 
+.img__wrap {
+    position: relative;
+  }
+
+  
+  .img__description_layer {
+    position: absolute;
+    top: 50%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    /* background: rgba(185, 185, 185, 0.6); */
+    color: rgb(22, 4, 4);
+    visibility: visible;
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    /* transition effect. not necessary */
+    transition: opacity .2s, visibility .2s;
+  }
+  
+  .img__wrap:hover .img__description_layer {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  .img__description {
+    transition: .2s;
+    transform: translateY(1em);
+  }
+  
+  .img__wrap:hover .img__description {
+    transform: translateY(0);
+  }
+
+  /* router */
+.profile_tabs_menu_ul_li_a {
+    text-decoration: none;
+    color: #696868;
+}
+
+.profile_tabs_menu_ul_li_a:hover {
+    text-decoration: none;
+    color: #696868;
+}
+
+.router-link-active {
+    display: block;
+    background: #fff;
+}
+.panel-heading{
+    padding-bottom: 30px;
+}
+/* router */
 
 
 

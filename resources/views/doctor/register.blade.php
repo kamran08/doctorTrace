@@ -73,20 +73,20 @@
                         {{-- Chamber Location --}}
 
                         <div class="form-group row">
-                            <label for="chamber_location" class="col-md-4 col-form-label text-md-right">{{ __(' Location') }}</label>
+                            <label for="location" class="col-md-4 col-form-label text-md-right">{{ __(' Location') }}</label>
 
                             <div class="col-md-6">
                                 
-                                <select id="chamber_location" class="form-control{{ $errors->has('chamber_location') ? ' is-invalid' : '' }}" name="chamber_location" value="{{ old('chamber_location') }}" required>
+                                <select id="location" class="form-control{{ $errors->has('location') ? ' is-invalid' : '' }}" name="location" value="{{ old('location') }}" required>
                                         <option  disabled selected>Choose a City</option>
                                         <option value="Sylhet">Sylhet</option>
                                         <option value="Dhaka">Dhaka</option>
                                         <option value="Chattagram">Chattagram</option>
                                       </select>
 
-                                @if ($errors->has('chamber_location'))
+                                @if ($errors->has('location'))
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('chamber_location') }}</strong>
+                                        <strong>{{ $errors->first('location') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -94,14 +94,14 @@
                         {{-- Sitting Time --}}
 
                         <div class="form-group row">
-                            <label for="sitting_time" class="col-md-4 col-form-label text-md-right">{{ __(' Sitting Time') }}</label>
+                            <label for="specialties" class="col-md-4 col-form-label text-md-right">{{ __('Specialties') }}</label>
 
                             <div class="col-md-6">
-                                <input id="sitting_time" type="time" class="form-control{{ $errors->has('sitting_time') ? ' is-invalid' : '' }}" name="sitting_time" value="{{ old('sitting_time') }}" required>
+                                <input id="specialties" type="text" class="form-control{{ $errors->has('specialties') ? ' is-invalid' : '' }}" name="specialties" value="{{ old('specialties') }}" required>
 
-                                @if ($errors->has('sitting_time'))
+                                @if ($errors->has('specialties'))
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('sitting_time') }}</strong>
+                                        <strong>{{ $errors->first('specialties') }}</strong>
                                     </span>
                                 @endif
                             </div>

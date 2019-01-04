@@ -12,12 +12,42 @@ class DoctorTableSeeder extends Seeder
     public function run()
     {
         $Doctor = new \App\Doctor();
-        $Doctor->name = 'Dr. Jamal';
-        $Doctor->email = 'jamal@gmail.com';
+        $Doctor->name = 'Dr Saleh Ahmed Tahlil';
+        $Doctor->email = 'saleh@gmail.com';
         $Doctor->address = 'Shagordhigi';
-        $Doctor->phone = '01681189844';
-        $Doctor->chamber_location = 'Sylhet';
-        $Doctor->sitting_time = '04:00 Pm';
+        $Doctor->phone = '01763930980';
+        $Doctor->location = 'Sylhet';
+        $Doctor->specialties = 'Cardiologist';
+        $Doctor->password = Hash::make('123456');
+        $Doctor->save();
+        
+        $Doctor = new \App\Doctor();
+        $Doctor->name = 'Dr. Md Sakir Ahmed Shaheen';
+        $Doctor->email = 'sakir@gmail.com';
+        $Doctor->address = 'Shagordhigi';
+        $Doctor->phone = '01763930980';
+        $Doctor->location = 'Sylhet';
+        $Doctor->specialties = 'Cardiologist';
+        $Doctor->password = Hash::make('123456');
+        $Doctor->save();
+
+        $Doctor = new \App\Doctor();
+        $Doctor->name = 'Dr. Ayesha Chowdhury';
+        $Doctor->email = 'ayesha@gmail.com';
+        $Doctor->address = 'Shagordhigi';
+        $Doctor->phone = '01763930980';
+        $Doctor->location = 'Sylhet';
+        $Doctor->specialties = 'Dentist';
+        $Doctor->password = Hash::make('123456');
+        $Doctor->save();
+
+        $Doctor = new \App\Doctor();
+        $Doctor->name = 'Prof. Dr. MD Aminur Rahman Laskar';
+        $Doctor->email = 'aminur@gmail.com';
+        $Doctor->address = 'Shagordhigi';
+        $Doctor->phone = '01763930980';
+        $Doctor->location = 'Sylhet';
+        $Doctor->specialties = 'Medicine';
         $Doctor->password = Hash::make('123456');
         $Doctor->save();
     }

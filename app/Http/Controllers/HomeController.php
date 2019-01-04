@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Doctor;
+use App\User;
+use App\Hospital;
 
 class HomeController extends Controller
 {
@@ -11,9 +14,8 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
+    public function __construct(){
+
     }
 
     /**
@@ -24,5 +26,19 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+    }
+    public function doctorProfile($id){
+
+        $doctor = Doctor::where('id', $id)->first();
+        
+        return view('profiles.index', ['doctor' => $doctor]);
+    }
+    public function showDLogin(){
+  
+        return view('doctor.login');
+    }
+    public function showDRegistration(){
+
+        return view('doctor.register');
     }
 }
