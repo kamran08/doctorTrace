@@ -29,6 +29,7 @@ Vue.mixin(common)
 
 Vue.component('master', require('./layout/master.vue'));
 Vue.component('dashboard', require('./layout/dashBoard.vue'));
+Vue.component('home-master', require('./layout/home-master.vue'));
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

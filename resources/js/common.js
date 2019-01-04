@@ -45,6 +45,9 @@ export default  {
        SuccessMsg: 'user/getMsg',
        LinkFlagTab: 'doctor/TabInfo',
        appointmentInfo: 'doctor/appointmentInfo',
+       specialtiesInfo: 'search/getSpecialties',
+       locationInfo: 'search/getLocation',
+       resultInfo: 'search/getResult',
 
 }),
 }

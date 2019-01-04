@@ -21,9 +21,6 @@ Route::get('/main', function () {
 Route::get('/home', function () {
     return view('pages.home');
 })->name('home');
-Route::get('/search', function () {
-    return view('pages.search');
-})->name('search');
 Auth::routes();
 
 // Doctor's Routing
@@ -73,9 +70,7 @@ Route::post('/updateStatus', [
 Route::get('/dfinished', function () {
     return view('doctor.pages.finishedappoint');
 });
-Route::get('/dprofile', function () {
-    return view('doctor.pages.profile');
-})->name('doctor.home');
+
 
 
 
@@ -94,4 +89,15 @@ Route::get('/hregistration', function () {
 Route::post('/makeAppointment', [
     'uses' => 'AppointmentController@create',
     'as' => 'makeAppointment'
+]);
+
+// Searching Routing
+
+Route::get('/indexSearch', [
+    'uses' => 'SearchController@index',
+    'as' => 'indexSearch'
+]);
+Route::post('/searchByKey', [
+    'uses' => 'SearchController@searchByKey',
+    'as' => 'searchByKey'
 ]);

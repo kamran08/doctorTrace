@@ -113,7 +113,7 @@
                    <!-- end row -->
                 </div> <!-- container -->
             </div> <!-- content -->
-            <footer class="footer text-right">2016 - 2018 © Zircos.</footer>
+            
         </div>
     </div>
 </template>

@@ -8,8 +8,6 @@
       <div class="col-auto">
         <ul class="logo_ul">
           <li class="logo_ul_active"><a href="{{ route('home') }}">HOME</a></li>
-          
-          <li><a href="{{ route('search') }}">SEARCH</a></li>
           @if (Auth::guard('doctor')->check() || Auth::guard()->check())
 
           <li><a href="{{ route('profile', ['id' => 1 ]) }}">{{ (Auth::guard('doctor')->check())? Auth::guard('doctor')->user()->name : Auth::user()->name}}</a></li>

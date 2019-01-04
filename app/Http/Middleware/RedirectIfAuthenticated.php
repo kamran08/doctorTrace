@@ -20,7 +20,7 @@ class RedirectIfAuthenticated
             switch ($guard) {
                 case 'doctor' :
                     if (Auth::guard($guard)->check()) {
-                        return redirect()->route('doctor.home');
+                        return redirect()->route('doctor.dashboard');
                     }
                     break;
                 default:
