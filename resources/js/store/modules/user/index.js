@@ -5,6 +5,7 @@ import mutations from './mutations';
 const state = {
   users : '',
   user_id:[],
+  appointments:[],
   SuccessMsg:'',
  
  

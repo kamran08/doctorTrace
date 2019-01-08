@@ -45,7 +45,7 @@ Route::post('/dlogin', 'Auth\doctorLoginController@login')->name('doctor.login.s
 
 Route::get('profile/{id}', [
     'uses' => 'HomeController@doctorProfile',
-    'middleware' => ['auth'],
+    // 'middleware' => ['auth'],
     'as' => 'profile'
 ]);
 
@@ -89,6 +89,10 @@ Route::get('/hregistration', function () {
 Route::post('/makeAppointment', [
     'uses' => 'AppointmentController@create',
     'as' => 'makeAppointment'
+]);
+Route::post('/showByDate', [
+    'uses' => 'AppointmentController@showByDate',
+    'as' => 'showByDate'
 ]);
 
 // Searching Routing

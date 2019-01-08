@@ -3,7 +3,7 @@
     <p class="profile_sidebar_title">People Also Viewed</p>
       <!-- items -->
     <div class="profile_sidebar_all dis">
-      <img class="profile_sidebar_img" src="img/V90.jpg" src="" title="">
+      <img class="profile_sidebar_img" src="{{ asset('img/V90.jpg') }}" src="" title="">
 
       <div class="profile_sidebar_text">
         <p class="profile_sidebar_text_name">Syed Rafia Islam Lopa</p>
@@ -14,7 +14,7 @@
 
       <!-- items -->
     <div class="profile_sidebar_all dis">
-      <img class="profile_sidebar_img" src="img/V90.jpg" src="" title="">
+      <img class="profile_sidebar_img" src="{{ asset('img/V90.jpg') }}" src="" title="">
 
       <div class="profile_sidebar_text">
         <p class="profile_sidebar_text_name">Syed Rafia Islam Lopa</p>
@@ -25,7 +25,7 @@
 
       <!-- items -->
     <div class="profile_sidebar_all dis">
-      <img class="profile_sidebar_img" src="img/V90.jpg" src="" title="">
+      <img class="profile_sidebar_img" src="{{ asset('img/V90.jpg') }}" src="" title="">
 
       <div class="profile_sidebar_text">
         <p class="profile_sidebar_text_name">Syed Rafia Islam Lopa</p>
@@ -36,7 +36,7 @@
 
       <!-- items -->
     <div class="profile_sidebar_all dis">
-      <img class="profile_sidebar_img" src="img/V90.jpg" src="" title="">
+      <img class="profile_sidebar_img" src="{{ asset('img/V90.jpg') }}" src="" title="">
 
       <div class="profile_sidebar_text">
         <p class="profile_sidebar_text_name">Syed Rafia Islam Lopa</p>
@@ -47,7 +47,7 @@
 
       <!-- items -->
     <div class="profile_sidebar_all dis">
-      <img class="profile_sidebar_img" src="img/V90.jpg" src="" title="">
+      <img class="profile_sidebar_img" src="{{ asset('img/V90.jpg') }}" src="" title="">
 
       <div class="profile_sidebar_text">
         <p class="profile_sidebar_text_name">Syed Rafia Islam Lopa</p>

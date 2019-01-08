@@ -17,7 +17,11 @@
 						
 							<div id="app">
 								
-								<master :gid="{'doctor':{{$doctor}},'user_id':{{Auth::user()->id}}}" >
+								<master :gid="{
+									'doctor':{{$doctor}},
+									{{-- 'appointment':{{$appointmentInfo}}, --}}
+									'user_id':{{(Auth::guard()->check())? Auth::user()->id : 0}}}" >
+									{{--  (Auth::user->check())? Auth::user()->id : 0 --}}
 									
 								
 								</master>

@@ -28,4 +28,8 @@ class Doctor extends Authenticatable
     {
         return $this->belongsToMany('App\Degree', 'doctor_degree', 'doctor_id', 'degree_id')->withTimestamps();
     }
+
+    public function appointments(){
+            return $this->hasMany('App\Appointment');
+        }
 }

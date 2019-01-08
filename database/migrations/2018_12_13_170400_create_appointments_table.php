@@ -18,6 +18,7 @@ class CreateAppointmentsTable extends Migration
             $table->integer('doctor_id');
             $table->integer('user_id');
             $table->date('date');
+            $table->integer('serial');
             $table->boolean('status')->default(0);;
             $table->timestamps();
         });

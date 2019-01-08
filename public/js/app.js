@@ -52233,6 +52233,7 @@ var AppointMent_UPDATED = function AppointMent_UPDATED(state, data) {
 var state = {
   users: '',
   user_id: [],
+  appointments: [],
   SuccessMsg: ''
 
 };
@@ -52318,11 +52319,53 @@ var Msg_UPDATED = function () {
 										return _ref3.apply(this, arguments);
 					};
 }();
+var Appointment_UPDATED = function () {
+					var _ref4 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee4(context, data) {
+										return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee4$(_context4) {
+															while (1) {
+																				switch (_context4.prev = _context4.next) {
+																									case 0:
+																														context.commit('Appointment_UPDATED', data);
+
+																									case 1:
+																									case 'end':
+																														return _context4.stop();
+																				}
+															}
+										}, _callee4, _this);
+					}));
+
+					return function Appointment_UPDATED(_x7, _x8) {
+										return _ref4.apply(this, arguments);
+					};
+}();
+var AppointmentSerial_UPDATED = function () {
+					var _ref5 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee5(context, data) {
+										return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee5$(_context5) {
+															while (1) {
+																				switch (_context5.prev = _context5.next) {
+																									case 0:
+																														context.commit('AppointmentSerial_UPDATED', data);
+
+																									case 1:
+																									case 'end':
+																														return _context5.stop();
+																				}
+															}
+										}, _callee5, _this);
+					}));
+
+					return function AppointmentSerial_UPDATED(_x9, _x10) {
+										return _ref5.apply(this, arguments);
+					};
+}();
 
 /* harmony default export */ __webpack_exports__["a"] = ({
 					updateUser: updateUser,
 					Userid_UPDATED: Userid_UPDATED,
-					Msg_UPDATED: Msg_UPDATED
+					Msg_UPDATED: Msg_UPDATED,
+					Appointment_UPDATED: Appointment_UPDATED,
+					AppointmentSerial_UPDATED: AppointmentSerial_UPDATED
 });
 
 /***/ }),
@@ -52339,11 +52382,15 @@ var user_id = function user_id(state) {
 var getMsg = function getMsg(state) {
   return state.SuccessMsg;
 };
+var getAppointments = function getAppointments(state) {
+  return state.appointments;
+};
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   users: users,
   user_id: user_id,
-  getMsg: getMsg
+  getMsg: getMsg,
+  getAppointments: getAppointments
 });
 
 /***/ }),
@@ -52355,18 +52402,25 @@ var USER_UPDATED = function USER_UPDATED(state, user) {
             state.users = user;
 };
 var Userid_UPDATED = function Userid_UPDATED(state, user_id) {
-            console.log("Log In user Upadating");
             state.user_id = user_id;
 };
 var Msg_UPDATED = function Msg_UPDATED(state, data) {
-            console.log("SuccessMsg Upadating");
             state.SuccessMsg = data;
+};
+var Appointment_UPDATED = function Appointment_UPDATED(state, data) {
+            state.appointments = data;
+};
+var AppointmentSerial_UPDATED = function AppointmentSerial_UPDATED(state, data) {
+            state.appointments[data].isBooked = true;
+            state.appointments[data].isPending = true;
 };
 
 /* harmony default export */ __webpack_exports__["a"] = ({
             USER_UPDATED: USER_UPDATED,
             Userid_UPDATED: Userid_UPDATED,
-            Msg_UPDATED: Msg_UPDATED
+            Msg_UPDATED: Msg_UPDATED,
+            Appointment_UPDATED: Appointment_UPDATED,
+            AppointmentSerial_UPDATED: AppointmentSerial_UPDATED
 });
 
 /***/ }),
@@ -52588,6 +52642,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
         doctor: 'doctor/doctorInfo',
         user_id: 'user/user_id',
         SuccessMsg: 'user/getMsg',
+        userAppointments: 'user/getAppointments',
         LinkFlagTab: 'doctor/TabInfo',
         appointmentInfo: 'doctor/appointmentInfo',
         specialtiesInfo: 'search/getSpecialties',
@@ -52651,12 +52706,18 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_profileTabs_AboutTab__ = __webpack_require__(64);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_profileTabs_AboutTab___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_profileTabs_AboutTab__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_profileTabs_InfoTab__ = __webpack_require__(67);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_profileTabs_InfoTab___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_profileTabs_InfoTab__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_profileTabs_FeedbackTab__ = __webpack_require__(69);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_profileTabs_FeedbackTab___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_profileTabs_FeedbackTab__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_profileTabs_AboutTab__ = __webpack_require__(64);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_profileTabs_AboutTab___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_profileTabs_AboutTab__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_profileTabs_InfoTab__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_profileTabs_InfoTab___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_profileTabs_InfoTab__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_profileTabs_FeedbackTab__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_profileTabs_FeedbackTab___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_profileTabs_FeedbackTab__);
+
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
 //
 //
 //
@@ -52693,9 +52754,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 	props: ['gid'],
 	// props: ['user'],:user="{{Auth::user()}}"
 	components: {
-		AboutTab: __WEBPACK_IMPORTED_MODULE_0__components_profileTabs_AboutTab___default.a,
-		InfoTab: __WEBPACK_IMPORTED_MODULE_1__components_profileTabs_InfoTab___default.a,
-		FeedbackTab: __WEBPACK_IMPORTED_MODULE_2__components_profileTabs_FeedbackTab___default.a
+		AboutTab: __WEBPACK_IMPORTED_MODULE_1__components_profileTabs_AboutTab___default.a,
+		InfoTab: __WEBPACK_IMPORTED_MODULE_2__components_profileTabs_InfoTab___default.a,
+		FeedbackTab: __WEBPACK_IMPORTED_MODULE_3__components_profileTabs_FeedbackTab___default.a
 	},
 	data: function data() {
 		return {
@@ -52719,15 +52780,55 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 	// },
 
 	computed: {},
-	created: function created() {
-		// Do something useful with the data in the template
-		console.log(this.gid);
-		this.$store.dispatch('doctor/updateDoctor', this.gid.doctor);
-		console.log(this.doctor);
-		this.$store.dispatch('user/Userid_UPDATED', this.gid.user_id);
+	created: function () {
+		var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
+			var AuthData, res;
+			return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+				while (1) {
+					switch (_context.prev = _context.next) {
+						case 0:
+							this.$store.dispatch('doctor/updateDoctor', this.gid.doctor);
+							this.$store.dispatch('user/Userid_UPDATED', this.gid.user_id);
 
-		console.log(this.user_id);
-	},
+							console.log(this.userAppointments);
+
+							if (!this.gid.user_id) {
+								_context.next = 10;
+								break;
+							}
+
+							console.log("I am log In");
+							AuthData = {
+								'doctor_id': this.doctor.id,
+								'date': new Date().toISOString().slice(0, 10)
+							};
+							_context.next = 8;
+							return this.callApi('post', '/showByDate', AuthData);
+
+						case 8:
+							res = _context.sent;
+
+							if (res.status === 200) {
+
+								this.$store.dispatch('user/Appointment_UPDATED', res.data.appointment);
+							} else {
+								console.log("Error in retriveing Appointment Info");
+							}
+
+						case 10:
+						case 'end':
+							return _context.stop();
+					}
+				}
+			}, _callee, this);
+		}));
+
+		function created() {
+			return _ref.apply(this, arguments);
+		}
+
+		return created;
+	}(),
 
 	methods: {
 		changeTab: function changeTab(id) {
@@ -52867,34 +52968,20 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
 
-      date: ''
+      date: new Date().toISOString().slice(0, 10)
     };
   },
 
 
   methods: {
     makeAppointment: function () {
-      var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
+      var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee(No) {
         var AuthData, info, msg;
         return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
           while (1) {
@@ -52904,6 +52991,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                 AuthData = {
                   'doctor_id': this.doctor.id,
                   'user_id': this.user_id,
+                  'serial': No,
                   'date': this.date
                 };
 
@@ -52916,12 +53004,15 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
                 if (info.status === 200) {
                   this.$store.dispatch('user/Msg_UPDATED', info.data.message);
+
+                  this.$store.dispatch('user/AppointmentSerial_UPDATED', No - 1);
                 } else {
                   msg = "Error : " + info;
-                }
-                $(this.$refs.vuemodal).modal('hide');
 
-              case 8:
+                  console.log(msg);
+                }
+
+              case 7:
               case 'end':
                 return _context.stop();
             }
@@ -52929,11 +53020,49 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
         }, _callee, this);
       }));
 
-      function makeAppointment() {
+      function makeAppointment(_x) {
         return _ref.apply(this, arguments);
       }
 
       return makeAppointment;
+    }(),
+    showByDate: function () {
+      var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2() {
+        var AuthData, res;
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                AuthData = {
+                  'doctor_id': this.doctor.id,
+                  'date': this.date
+                };
+                _context2.next = 3;
+                return this.callApi('post', '/showByDate', AuthData);
+
+              case 3:
+                res = _context2.sent;
+
+                if (res.status === 200) {
+
+                  this.$store.dispatch('user/Appointment_UPDATED', res.data.appointment);
+                } else {
+                  console.log("Error in retriveing Appointment Info");
+                }
+
+              case 5:
+              case 'end':
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this);
+      }));
+
+      function showByDate() {
+        return _ref2.apply(this, arguments);
+      }
+
+      return showByDate;
     }()
   }
 
@@ -52966,97 +53095,156 @@ var render = function() {
         _vm._v(" "),
         _vm._m(5),
         _vm._v(" "),
-        _c("div", { staticClass: "doc_profile_tabs_button" }, [
-          _c(
-            "button",
-            {
-              staticClass: "btn b_bg",
-              attrs: {
-                type: "button",
-                "data-toggle": "modal",
-                "data-target": "#exampleModal"
-              }
-            },
-            [_vm._v("Make Appointment")]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              ref: "vuemodal",
-              staticClass: "modal ",
-              attrs: {
-                id: "exampleModal",
-                tabindex: "-1",
-                role: "dialog",
-                "data-backdrop": "",
-                "aria-labelledby": "exampleModalLabel",
-                "aria-hidden": "true"
-              }
-            },
-            [
+        _c("div", { staticClass: "doc_profile_tabs_button" }),
+        _vm._v(" "),
+        _vm.user_id != 0
+          ? _c("div", { staticClass: "justify-content-center" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-success",
+                  attrs: {
+                    type: "button",
+                    "data-toggle": "modal",
+                    "data-target": "#exampleModalCenter"
+                  }
+                },
+                [_vm._v("Make Appointment")]
+              ),
+              _vm._v(" "),
               _c(
                 "div",
-                { staticClass: "modal-dialog", attrs: { role: "document" } },
+                {
+                  staticClass: "modal fade",
+                  attrs: {
+                    id: "exampleModalCenter",
+                    tabindex: "-1",
+                    role: "dialog",
+                    "aria-labelledby": "exampleModalCenterTitle",
+                    "aria-hidden": "true"
+                  }
+                },
                 [
-                  _c("div", { staticClass: "modal-content" }, [
-                    _vm._m(6),
-                    _vm._v(" "),
-                    _c(
-                      "form",
-                      {
-                        on: {
-                          submit: function($event) {
-                            $event.preventDefault()
-                            return _vm.makeAppointment($event)
-                          }
-                        }
-                      },
-                      [
-                        _c("div", { staticClass: "modal-body" }, [
-                          _c("div", { staticClass: "form-group" }, [
-                            _c(
-                              "label",
-                              {
-                                staticClass: "col-form-label text-center ",
-                                attrs: { for: "recipient-name" }
-                              },
-                              [_vm._v("Date")]
-                            ),
-                            _vm._v(" "),
-                            _c("input", {
-                              directives: [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "modal-dialog modal-dialog-centered",
+                      attrs: { role: "document" }
+                    },
+                    [
+                      _c("div", { staticClass: "modal-content" }, [
+                        _vm._m(6),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "modal-body" },
+                          [
+                            _c("div", { staticClass: "form-group" }, [
+                              _c(
+                                "label",
                                 {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.date,
-                                  expression: "date"
-                                }
-                              ],
-                              staticClass: "form-control",
-                              attrs: { type: "date", name: "date" },
-                              domProps: { value: _vm.date },
-                              on: {
-                                input: function($event) {
-                                  if ($event.target.composing) {
-                                    return
+                                  staticClass: "col-form-label text-center ",
+                                  attrs: { for: "recipient-name" }
+                                },
+                                [_vm._v("Date")]
+                              ),
+                              _vm._v(" "),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.date,
+                                    expression: "date"
                                   }
-                                  _vm.date = $event.target.value
+                                ],
+                                staticClass: "form-control",
+                                attrs: { type: "date" },
+                                domProps: { value: _vm.date },
+                                on: {
+                                  change: _vm.showByDate,
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.date = $event.target.value
+                                  }
                                 }
-                              }
+                              })
+                            ]),
+                            _vm._v(" "),
+                            _vm._l(_vm.userAppointments, function(item, index) {
+                              return _c(
+                                "div",
+                                {
+                                  key: index,
+                                  staticClass: "form-group text-center"
+                                },
+                                [
+                                  _c("hr"),
+                                  _vm._v(" "),
+                                  _c("p", [
+                                    _vm._v("Serial: " + _vm._s(index + 1))
+                                  ]),
+                                  _c("p", [
+                                    _vm._v(
+                                      _vm._s(item.slotDetails) +
+                                        "   :  \n                      "
+                                    ),
+                                    item.isBooked == false
+                                      ? _c(
+                                          "a",
+                                          {
+                                            staticClass:
+                                              "btn btn-success  text-white",
+                                            attrs: { role: "button" },
+                                            on: {
+                                              click: function($event) {
+                                                _vm.makeAppointment(index + 1)
+                                              }
+                                            }
+                                          },
+                                          [_vm._v("Click to Book")]
+                                        )
+                                      : _vm._e(),
+                                    _vm._v(" "),
+                                    item.isBooked == true
+                                      ? _c(
+                                          "a",
+                                          {
+                                            class:
+                                              item.isPending == true
+                                                ? "btn btn-secondary text-white"
+                                                : "btn btn-danger text-white",
+                                            attrs: { role: "button" }
+                                          },
+                                          [
+                                            _vm._v(
+                                              _vm._s(
+                                                item.isPending == true
+                                                  ? "Pending Request"
+                                                  : "Booked"
+                                              )
+                                            )
+                                          ]
+                                        )
+                                      : _vm._e()
+                                  ])
+                                ]
+                              )
                             })
-                          ])
-                        ]),
+                          ],
+                          2
+                        ),
                         _vm._v(" "),
                         _vm._m(7)
-                      ]
-                    )
-                  ])
+                      ])
+                    ]
+                  )
                 ]
               )
-            ]
-          )
-        ])
+            ])
+          : _vm._e()
       ])
     ])
   ])
@@ -53069,11 +53257,7 @@ var staticRenderFns = [
     return _c("div", { staticClass: "doc_profile_tabs_img" }, [
       _c("img", {
         staticClass: "doc_profile_tabs_image",
-        attrs: {
-          src: "http://docappoint.test:8080/img/V90.jpg",
-          alt: "",
-          title: ""
-        }
+        attrs: { src: "img/V90.jpg", alt: "", title: "" }
       })
     ])
   },
@@ -53146,7 +53330,7 @@ var staticRenderFns = [
     return _c("div", { staticClass: "modal-header" }, [
       _c(
         "h5",
-        { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
+        { staticClass: "modal-title", attrs: { id: "exampleModalLongTitle" } },
         [_vm._v("New Appointment")]
       ),
       _vm._v(" "),
@@ -53172,16 +53356,10 @@ var staticRenderFns = [
       _c(
         "button",
         {
-          staticClass: "btn btn-secondary",
+          staticClass: "btn btn-primary",
           attrs: { type: "button", "data-dismiss": "modal" }
         },
-        [_vm._v("Close")]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        { staticClass: "btn btn-primary", attrs: { type: "submit " } },
-        [_vm._v("Confirm")]
+        [_vm._v("Ok")]
       )
     ])
   }
@@ -53524,24 +53702,6 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _vm.SuccessMsg
-      ? _c("div", { staticClass: "row justify-content-center" }, [
-          _c(
-            "div",
-            {
-              staticClass: "alert alert-success alert-dismissible fade show",
-              attrs: { role: "alert" }
-            },
-            [
-              _vm._v(
-                "\n        \t\t" + _vm._s(_vm.SuccessMsg) + "\n        \t\t"
-              ),
-              _vm._m(0)
-            ]
-          )
-        ])
-      : _vm._e(),
-    _vm._v(" "),
     _c(
       "div",
       { staticClass: "profile_tabs box_shadow" },
@@ -53599,25 +53759,7 @@ var render = function() {
     )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "button",
-      {
-        staticClass: "close",
-        attrs: {
-          type: "button",
-          "data-dismiss": "alert",
-          "aria-label": "Close"
-        }
-      },
-      [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
-    )
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {

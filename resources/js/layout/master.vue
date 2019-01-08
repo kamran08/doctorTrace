@@ -1,14 +1,14 @@
 <template>
 	<div >
 	    <!-- Success Msg -->
-		<div class="row justify-content-center" v-if="SuccessMsg" >     
+		<!-- <div class="row justify-content-center" v-if="SuccessMsg" >     
       		<div class="alert alert-success alert-dismissible fade show" role="alert">
         		{{ SuccessMsg }}
         		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
             		<span aria-hidden="true">&times;</span>
           		</button>
         	</div>
-      	</div>
+      	</div> -->
 		  <!-- menu -->
       	<div class="profile_tabs box_shadow">
 			<div class="profile_tabs_menu">
@@ -63,16 +63,30 @@ export default {
 	computed: {
 
 	},
-	created () {
-        // Do something useful with the data in the template
-		console.log(this.gid)
+	async created () {
 		this.$store.dispatch('doctor/updateDoctor',this.gid.doctor);
-		console.log(this.doctor)
 		this.$store.dispatch('user/Userid_UPDATED',this.gid.user_id);
 		
-		console.log(this.user_id)
-		
-       
+		console.log(this.userAppointments);
+
+		if(this.gid.user_id){
+			console.log("I am log In");
+			let AuthData = {
+    	    	'doctor_id':this.doctor.id,
+    	    	'date':(new Date().toISOString().slice(0,10)),
+    		}
+			const res = await this.callApi('post', '/showByDate',AuthData)
+			if(res.status===200){
+
+				this.$store.dispatch('user/Appointment_UPDATED',res.data.appointment);
+
+			}
+			else{
+				console.log("Error in retriveing Appointment Info");
+			}
+		}
+	    
+
 	},
 	  methods: {
 		changeTab(id){
