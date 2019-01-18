@@ -23,6 +23,12 @@ Route::get('/home', function () {
 })->name('home');
 Auth::routes();
 
+
+Route::get('userprofile/{id}', [
+    'uses' => 'HomeController@userProfile',
+    // 'middleware' => ['auth'],
+    'as' => 'user.profile'
+]);
 // Doctor's Routing
 
 Route::get('dlogin', [
@@ -94,6 +100,18 @@ Route::post('/showByDate', [
     'uses' => 'AppointmentController@showByDate',
     'as' => 'showByDate'
 ]);
+Route::post('/showByDate', [
+    'uses' => 'AppointmentController@showByDate',
+    'as' => 'showByDate'
+]);
+Route::post('/userAppoShowByDate', [
+    'uses' => 'AppointmentController@userAppoShowByDate',
+    'as' => 'userAppoShowByDate'
+]);
+Route::post('/cancleAppointment', [
+    'uses' => 'AppointmentController@delete',
+    'as' => 'cancleAppointment'
+]);
 
 // Searching Routing
 
@@ -102,6 +120,14 @@ Route::get('/indexSearch', [
     'as' => 'indexSearch'
 ]);
 Route::post('/searchByKey', [
-    'uses' => 'SearchController@searchByKey',
+    'uses' => 'SearchController@searchByKey', 
     'as' => 'searchByKey'
 ]);
+
+
+// User Routing 
+
+// ChatBot
+Route::get('/bot', function () {
+    return view('pages.bot');
+})->name('bot');

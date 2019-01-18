@@ -13,6 +13,12 @@ const Appointment_UPDATED = async (context,data) => {
 const AppointmentSerial_UPDATED = async (context,data) => {
 					  context.commit('AppointmentSerial_UPDATED', data);    
 };
+const userAppointMent_UPDATED = async (context,data) => {
+	context.commit('userAppointMent_UPDATED', data);    
+};
+const AppointMent_Delete = async (context,data) => {
+	context.commit('AppointMent_Delete', data);    
+};
 
 
 
@@ -22,4 +28,6 @@ export default {
 	Msg_UPDATED,
 	Appointment_UPDATED,
 	AppointmentSerial_UPDATED,
+	userAppointMent_UPDATED,
+	AppointMent_Delete,
 };

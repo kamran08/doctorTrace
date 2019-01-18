@@ -14,6 +14,13 @@ const AppointmentSerial_UPDATED = (state,data) => {
             state.appointments[data].isBooked=true;
             state.appointments[data].isPending=true;
           };
+const userAppointMent_UPDATED = (state,data) => {   
+            state.userAppointmentInfo=data;
+          };
+const AppointMent_Delete = (state,data) => {   
+           // delete state.userAppointmentInfo[data];
+            state.userAppointmentInfo.splice(data,1)
+          };
 
 
 
@@ -24,4 +31,6 @@ export default {
             Msg_UPDATED,
             Appointment_UPDATED,
             AppointmentSerial_UPDATED,
+            userAppointMent_UPDATED,
+            AppointMent_Delete,
 };

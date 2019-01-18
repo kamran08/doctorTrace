@@ -11,3 +11,17 @@
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">
 <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+<link href="{{ asset('css/user.css') }}" rel="stylesheet">
+
+{{-- Bot bot Bot --}}
+
+<!-- Bootstrap 4.0-->
+<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+<!-- Popup CSS -->
+<link href="{{ asset('css/magnific-popup.css') }}"  rel="stylesheet">
+<!-- Bootstrap extend-->
+<link rel="stylesheet" href="{{ asset('css/bootstrap-extend.css') }}">
+<!-- Theme style -->
+<link rel="stylesheet" href="{{ asset('css/master_style.css') }}">
+<!-- Superieur Admin skins -->
+<link rel="stylesheet" href="{{ asset('css/_all-skins.css') }}">	

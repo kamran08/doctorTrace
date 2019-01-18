@@ -7,6 +7,7 @@ const state = {
   user_id:[],
   appointments:[],
   SuccessMsg:'',
+  userAppointmentInfo:[],
  
  
 };

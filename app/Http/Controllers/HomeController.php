@@ -38,6 +38,12 @@ class HomeController extends Controller{
         
         return view('profiles.index', ['doctor' => $doctor]);
     }
+    public function userProfile($id){
+
+        $user = User::where('id', $id)->first();
+        
+        return view('profiles.user', ['user' => $user]);
+    }
     public function showDLogin(){
   
         return view('doctor.login');

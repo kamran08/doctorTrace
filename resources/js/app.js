@@ -13,23 +13,27 @@ import router from './router';
 import store from './store'
 import common from './common'
 Vue.mixin(common)
+// iView items
+import iView from 'iview'
+import 'iview/dist/styles/iview.css'
+import locale from 'iview/dist/locale/en-US';
+Vue.use(iView, { locale });
+import VueChatScroll from 'vue-chat-scroll'
+Vue.use(VueChatScroll)
 
 
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
+import Chat from 'vue-beautiful-chat'
+Vue.use(Chat)
 
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key)))
+
 
 
 Vue.component('master', require('./layout/master.vue'));
 Vue.component('dashboard', require('./layout/dashBoard.vue'));
 Vue.component('home-master', require('./layout/home-master.vue'));
+Vue.component('user-profile', require('./layout/user-profile.vue'));
+Vue.component('bot', require('./layout/bot.vue'));
+Vue.component('custom', require('./layout/custom.vue'));
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

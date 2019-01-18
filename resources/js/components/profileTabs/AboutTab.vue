@@ -2,7 +2,7 @@
   <div class="profile_tabs_components">
       <div class="doc_profile_tabs dis">
         <div class="doc_profile_tabs_img">
-          <img class="doc_profile_tabs_image" src="img/V90.jpg" alt="" title="">
+          <img class="doc_profile_tabs_image"   v-bind:src="BASE_URL+'/img/V90.jpg'" >
         </div>
         <div class="doc_profile_tabs_details flex_space">
           <p class="doc_profile_tabs_details_name">Dr. Parthddathi Dutta Ray <span>Profile is claimbed</span></p>
@@ -44,7 +44,7 @@
                     <div class="form-group text-center" v-for="(item,index) in userAppointments" :key="index" >
                       <hr>
                       <p>Serial: {{index+1}}</p><p>{{item.slotDetails}}   :  
-                        <a v-if="item.isBooked==false" role="button" class="btn btn-success  text-white" @click="makeAppointment(index+1)" >Click to Book</a>
+                        <a v-if="item.isBooked==false" role="button" class="btn btn-success  text-white" @click="makeAppointment(index+1,item)" >Click to Book</a>
                         <a v-if="item.isBooked==true" role="button"  v-bind:class="(item.isPending==true)? 'btn btn-secondary text-white': 'btn btn-danger text-white'">{{(item.isPending==true)? 'Pending Request': 'Booked'}}</a>
                       </p>
                     </div>
@@ -75,12 +75,13 @@ export default {
     
    methods: {
 
-    async  makeAppointment(No){
+    async  makeAppointment(No,item){
       console.log("i am here");
       let AuthData = {
         'doctor_id':this.doctor.id,
         'user_id':this.user_id,
         'serial':No,
+        'slotDetails':item.slotDetails,
         'date':this.date,
       }
       console.log(AuthData);

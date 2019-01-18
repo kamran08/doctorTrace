@@ -6,6 +6,7 @@ use App\Appointment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use DateTime;
 use DateInterval;
 
@@ -28,12 +29,15 @@ class AppointmentController extends Controller
      */
     public function create(Request $request){
 
-        //Log::info('I am Here: '.$request->doctor_id);
+        Log::info('I am Here: '.$request->doctor_id);
+        Log::info($request->slotDetails);
         $app = new Appointment([
             'doctor_id'=> $request->doctor_id,
             'user_id'=> $request->user_id,
             'serial'=> $request->serial,
+            'slotDetails'=> $request->slotDetails,
             'date'=> $request->date,
+            
 
         ]);
         $app->save();
@@ -43,9 +47,15 @@ class AppointmentController extends Controller
             'message' => 'Request for Appointment ! Please wait from Admin Confirmation.',
         ],200);
     }
-    public function store(Request $request)
+    public function delete(Request $request)
     {
-        //
+        $appointment = Appointment::find($request->id);
+        
+        $appointment->delete();
+
+        return "done";
+
+
     }
     public function showByDate(Request $request){
 
@@ -93,37 +103,25 @@ class AppointmentController extends Controller
         
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Appointment  $appointment
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Appointment $appointment)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Appointment  $appointment
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Appointment $appointment)
-    {
-        //
-    }
+    public function userAppoShowByDate(Request $request){
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Appointment  $appointment
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Appointment $appointment)
-    {
-        //
+        $appointment = DB::table('appointments')
+        ->join('doctors', 'doctors.id', '=', 'appointments.doctor_id')
+        ->select('appointments.*', 'doctors.name', 'doctors.email', 'doctors.phone', 'doctors.address', 'doctors.location', 'doctors.specialties')
+        ->where([
+            ['appointments.user_id', $request->user_id],
+         ['appointments.date', $request->date]
+        ])
+        ->orderBy('appointments.created_at', 'asc')
+        ->get();
+        //Log::info('I am User Date: '.$request->date);
+        //Log::info('I am Data: '.$appointment);
+       // Log::info($appointment);
+
+        return response()->json([
+            'appointment' => $appointment,
+            
+        ],200);
     }
 }

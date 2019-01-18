@@ -9,7 +9,7 @@ class Appointment extends Model
     //
 
     protected $fillable = [
-        'doctor_id', 'user_id', 'date','serial'
+        'doctor_id', 'user_id', 'date','serial','slotDetails'
     ];
 
     public function doctor()

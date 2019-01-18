@@ -8,9 +8,10 @@
       <div class="col-auto">
         <ul class="logo_ul">
           <li class="logo_ul_active"><a href="{{ route('home') }}">HOME</a></li>
+          <li class="logo_ul_active"><a href="{{ route('bot') }}">Bot</a></li>
           @if (Auth::guard('doctor')->check() || Auth::guard()->check())
 
-          <li><a href="{{ route('profile', ['id' => 1 ]) }}">{{ (Auth::guard('doctor')->check())? Auth::guard('doctor')->user()->name : Auth::user()->name}}</a></li>
+          <li><a href="{{ route('user.profile', ['id' => Auth::user()->id ]) }}">{{  Auth::user()->name}}</a></li>
           <li><a  href="{{ route('logout') }}"
             onclick="event.preventDefault();
                           document.getElementById('logout-form').submit();">

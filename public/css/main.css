@@ -583,7 +583,10 @@ img{
 
 
 
-
+.button_two{}
+.button_one{
+    margin-bottom: 10px;
+}
 
 
 

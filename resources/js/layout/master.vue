@@ -67,7 +67,8 @@ export default {
 		this.$store.dispatch('doctor/updateDoctor',this.gid.doctor);
 		this.$store.dispatch('user/Userid_UPDATED',this.gid.user_id);
 		
-		console.log(this.userAppointments);
+		//console.log(this.userAppointments);
+		console.log("Base Url : "+this.BASE_URL)
 
 		if(this.gid.user_id){
 			console.log("I am log In");
