@@ -15,7 +15,7 @@ class SearchController extends Controller
         $specialities = Doctor::select('specialties')->distinct()->get();
 
         return response()->json([
-            'location' => $location,
+            'location' => $location, 
             'specialities' => $specialities,
         ],200);
         
@@ -28,21 +28,25 @@ class SearchController extends Controller
          // grab the data
          $locationKey = $request->locationKey;
          $mainKey = $request->mainKey;
-         $mainKey = "%saleh%";
+         //$mainKey = "%saleh%";
 
          Log::info($mainKey);
          
          
          // validate the data
          
-         // match the data to the database
-         $searchResult = Doctor::where('location' , $locationKey)
-            ->where(function($query){
-                $query->where('name', 'LIKE',  "%Cardiologist%" )
-                      ->orWhere('email', 'LIKE',  "%Cardiologist%")
-                      ->orWhere('specialties', 'LIKE',  "%Cardiologist%");
-            })
-            ->get();
+        
+        //  $searchResult = Doctor::where('location' , $locationKey)
+        //                         ->where($mainKey, function($query, $mainKey){
+        //                         $query->where('name', 'LIKE',  "%$mainKey%" )
+        //                             ->orWhere('email', 'LIKE',  "%$mainKey%")
+        //                             ->orWhere('specialties', 'LIKE',  "%$mainKey%");
+        //     })
+        //     ->get();
+         $searchResult = Doctor::where('name', 'LIKE',  "%$mainKey%" )
+                        ->orWhere('email', 'LIKE',  "%$mainKey%")
+                        ->orWhere('specialties', 'LIKE',  "%$mainKey%")
+                        ->get();
           
              
  
@@ -54,5 +58,9 @@ class SearchController extends Controller
              'searchResult' => $searchResult,
          ],200);
 
+    }
+
+    public function showAllDoctor(){
+        return  Doctor::all();
     }
 }

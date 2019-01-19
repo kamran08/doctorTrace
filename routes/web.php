@@ -123,6 +123,10 @@ Route::post('/searchByKey', [
     'uses' => 'SearchController@searchByKey', 
     'as' => 'searchByKey'
 ]);
+Route::get('/showAllDoctor', [
+    'uses' => 'SearchController@showAllDoctor', 
+    'as' => 'showAllDoctor'
+]);
 
 
 // User Routing 

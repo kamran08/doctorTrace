@@ -3,7 +3,7 @@ export default  {
     data(){
         return {
 
-         BASE_URL:"http://docappoint.test",
+            BASE_URL:"http://doctortrace.test",
            
           
                 

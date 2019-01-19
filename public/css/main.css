@@ -74,7 +74,7 @@ img{
 /*========= 3.home =======*/
 .home{}
 .home_search {
-    background-image: url(../img/logo.png);
+    background-image: url(../img/cover.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
     padding: 181px 0 162px;

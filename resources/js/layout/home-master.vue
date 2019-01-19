@@ -16,9 +16,14 @@
                         </div>
                         <div class="col-12 col-sm-auto col-md-auto home_search_button">
                             <button class="home_search_button_btn b_bg btn" type="submit" >SEARCH</button>
+                              <button class="home_search_button_btn b_bg btn" @click="showAllDoctor" >All Doctors </button>
                         </div>
+                         </form>
+                        <div class="col-12 col-sm-auto col-md-auto home_search_button">
+                          
+                        </div> 
                     <!-- </form> -->
-                </form>
+               
             </div>
         </div>
         <!--  section -->
@@ -69,6 +74,24 @@ export default {
                 this.LinkFlag=2;
             
 	
+		},
+	async showAllDoctor(){
+
+           
+            const res = await this.callApi('get', '/showAllDoctor');
+		    if(res.status===200){
+
+			    this.$store.dispatch('search/updateResult',res.data);
+			    this.locationKey = "Sylhet";
+                this.mainKey ='All doctors';
+            }
+            else{
+                this.swr();
+            }
+  			if(this.LinkFlag==1)
+                this.LinkFlag=2;
+            
+	
 		}
     },
 	async created() {
@@ -79,7 +102,7 @@ export default {
 			this.$store.dispatch('search/updateSLocation',res.data.location);
         }
         else{
-            console.log("Error "+res.status+" . Please fix this!!");
+           this.e("Something Went Wrong in Created")
         }
 
        

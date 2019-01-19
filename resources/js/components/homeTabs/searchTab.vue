@@ -6,13 +6,19 @@
                 <!-- items -->
                 <div class="fliter_top_auto">
                     <div class="dropdown">
+
+                        
+                            <!-- <Select v-model="filterProduct" placeholder="Specialties" style="width:200px" filterable clearable >
+                                <Option v-for="(item,i) in filterSpecialties" :value="item" :key="i" >{{ item }}</Option>
+                            </Select> -->
+                        
+              
                         <button class="btn fliter_button dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Availability
+                        Specialties
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                            <button class="dropdown-item" type="button">Action</button>
-                            <button class="dropdown-item" type="button">Another action</button>
-                            <button class="dropdown-item" type="button">Something else here</button>
+                            <button class="dropdown-item" v-for="(item,index) in filterSpecialties" :key="index" >{{item}}</button>
+                            
                         </div>
                     </div>
                 </div>
@@ -21,9 +27,13 @@
                 <!-- items -->
                 <div class="fliter_top_auto">
                     <div class="dropdown">
-                        <button class="btn fliter_button" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            In Hospital
+                          <button class="btn fliter_button dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Location
                         </button>
+                         <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                            <button class="dropdown-item" v-for="(item,index) in filterLocation" :key="index" >{{item}}</button>
+                            
+                        </div>
                     </div>
                 </div>
                   <!-- items -->    
@@ -31,46 +41,27 @@
                 <div class="fliter_top_auto">
                     <div class="dropdown">
                         <button class="btn fliter_button" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Online Booking
+                        Chamber Location
                         </button>
-                    </div>
-                </div>
-                  <!-- items -->    
-                  <!-- items -->
-                <div class="fliter_top_auto all_fliter flex_space">
-                    <div class="dropdown">
-                        <button class="btn fliter_button dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            All Filters
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                            <button class="dropdown-item" type="button">Action</button>
-                            <button class="dropdown-item" type="button">Another action</button>
-                            <button class="dropdown-item" type="button">Something else here</button>
+                         <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                            <button class="dropdown-item" v-for="(item,index) in filterChamberLocation" :key="index" >{{item}}</button>
+                            
                         </div>
                     </div>
                 </div>
                   <!-- items -->    
                   <!-- items -->
-                <div class="fliter_top_auto sorts">
-                    <p class="by">Sort By</p>
-                    <div class="dropdown">
-                        <button class="btn fliter_button dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Relevance
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                            <button class="dropdown-item" type="button">Action</button>
-                            <button class="dropdown-item" type="button">Another action</button>
-                            <button class="dropdown-item" type="button">Something else here</button>
-                        </div>
-                    </div>
-                </div>
+              
+                  <!-- items -->    
+                  <!-- items -->
+               
                 <!-- items -->
             </div>
             <!-- fliter_top -->
 
             <!-- found -->
             <div class="fliter_found">
-                <p class="fliter_found_text">{{resultInfo.length}} matches found for: <strong>Dermatogist in Bangalore</strong> <span><button type="button" class="fliter_found_button btn b_bg">Show doctors near me</button></span></p>
+                <p class="fliter_found_text">{{resultInfo.length}} matches found for: <strong>{{this.$parent.mainKey}} in {{this.$parent.locationKey}}</strong></p>
             </div>
             <!-- found -->
 
@@ -83,37 +74,21 @@
                 </div>
 
                 <div class="fliter_main_pro">
-                    <p class="fliter_main_pro_title">{{item.name}}</p>
-                    <p class="Dwematologist">1 Dwematologist</p>
-                    <ul class="fliter_main_pro_image">
-                        <li><img src="img/Rectangle40.png" title="" alt=""></li>
-                        <li><img src="img/Rectangle40.png" title="" alt=""></li>
-                        <li><img src="img/Rectangle40.png" title="" alt=""></li>
-                        <li><img src="img/Rectangle40.png" title="" alt=""></li>
-                    </ul>
-                    <span class="fliter_main_pro_tabs">Acne / Pimples T...</span>
-                    <span class="fliter_main_pro_tabs">Chemical peel</span>
+                    <a class="fliter_main_pro_title" v-bind:href="BASE_URL+'/profile/'+item.id"   >{{item.name}}</a>
+                    <p class="fliter_main_details_text">{{item.specialties}}</p>
                 </div>
         
-                <div class="fliter_main_skin flex_space">
-                    <span class="fliter_main_pro_tabs">Chemical peel</span>
-                    <p class="View">View all 30 services</p>
-                </div>
+                
 
 
 
                 <div class="fliter_main_details">
                     
+                    
                     <div class="fliter_main_details_all dis">
                       <div class="fliter_main_details_icons"></div>
                       <div class="fliter_main_details_text">
-                        <p class="fliter_main_details_rating">86% <span>(43 votes)</span></p>
-                      </div>
-                    </div>
-                    <div class="fliter_main_details_all dis">
-                      <div class="fliter_main_details_icons"></div>
-                      <div class="fliter_main_details_text">
-                        <p class="fliter_main_details_nor"><span>19 Feedback for 1 Doctor</span></p>
+                        <p class="fliter_main_details_nor"><span>0 Feedback for this Doctor</span></p>
                       </div>
                     </div>
                     <div class="fliter_main_details_all dis">
@@ -125,7 +100,7 @@
                     <div class="fliter_main_details_all dis">
                       <div class="fliter_main_details_icons"></div>
                       <div class="fliter_main_details_text">
-                        <p class="fliter_main_details_nor"><span>$ 500</span></p>
+                        <p class="fliter_main_details_nor"><span>৳ 500</span></p>
                       </div>
                     </div>
                     <div class="fliter_main_details_all dis">
@@ -146,6 +121,60 @@
 
 <script>
 export default {
+    data(){
+        return {
+          filterProduct:''
+        }
+    },
+
+    computed:{
+        filterSpecialties(){
+            var output = [];
+            var keys   = [];
+
+            this.resultInfo.forEach(function (data) {
+                var key = data.specialties;
+
+                if (keys.indexOf(key) === -1) {
+                    keys.push(key);
+                   // output.push(post);
+                }
+            });
+            console.log(keys)
+            return keys;
+            },
+        filterLocation(){
+            var output = [];
+            var keys   = [];
+
+            this.resultInfo.forEach(function (data) {
+                var key = data.location;
+
+                if (keys.indexOf(key) === -1) {
+                    keys.push(key);
+                   // output.push(post);
+                }
+            });
+            console.log(keys)
+            return keys;
+            },
+        filterChamberLocation(){
+            var output = [];
+            var keys   = [];
+
+            this.resultInfo.forEach(function (data) {
+                var key = data.address;
+
+                if (keys.indexOf(key) === -1) {
+                    keys.push(key);
+                   // output.push(post);
+                }
+            });
+            console.log(keys)
+            return keys;
+            },
+        
+    },
 
 }
 </script>
