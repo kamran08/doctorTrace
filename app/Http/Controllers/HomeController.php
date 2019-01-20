@@ -35,8 +35,14 @@ class HomeController extends Controller{
     public function doctorProfile($id){
 
         $doctor = Doctor::where('id', $id)->first();
+
+        $doctorSuggestion = Doctor::where('specialties', $doctor->specialties)->limit(4)->get();
+        Log::info($doctorSuggestion);
+
         
-        return view('profiles.index', ['doctor' => $doctor]);
+
+        
+        return view('profiles.index', ['doctor' => $doctor,'doctorSuggestion' => $doctorSuggestion]);
     }
     public function userProfile($id){
 

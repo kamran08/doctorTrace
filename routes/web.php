@@ -36,6 +36,8 @@ Route::get('dlogin', [
     'middleware' => ['guest'],
     'as' => 'doctor.login'
 ]);
+
+
 Route::get('dregistration', [
     'uses' => 'HomeController@showDRegistration',
     'middleware' => ['guest'],
@@ -47,6 +49,12 @@ Route::post('doctorRegistration', [
     'uses' => 'Auth\DoctorRegisterController@create',
     'as' => 'doctor.register.submit'
 ]);
+Route::post('/doctorPicUpdate', [
+    'uses' => 'DoctorController@doctorPicUpdate',
+    'as' => '/doctorPicUpdate'
+]);
+
+
 Route::post('/dlogin', 'Auth\doctorLoginController@login')->name('doctor.login.submit');
 
 Route::get('profile/{id}', [
@@ -131,7 +139,28 @@ Route::get('/showAllDoctor', [
 
 // User Routing 
 
+
+Route::post('/makeReviewByUser', [
+    'uses' => 'AppointmentController@makeReviewByUser',
+    'as' => 'makeReviewByUser'
+]);
+Route::post('/app/upload-avater', [
+    'uses' => 'AppointmentController@upload',
+   
+]);
+
+
+
+
+
+
+Route::get('/getReviewById/{id}', [
+    'uses' => 'AppointmentController@getReviewById',
+    'as' => 'getReviewById'
+]);
+
 // ChatBot
 Route::get('/bot', function () {
     return view('pages.bot');
 })->name('bot');
+

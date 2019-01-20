@@ -57,11 +57,11 @@
                                     {{ __('Login') }}
                                 </button>
 
-                                @if (Route::has('password.request'))
+                                {{-- @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}
                                     </a>
-                                @endif
+                                @endif --}}
                             </div>
                         </div>
                     </form>
@@ -70,9 +70,9 @@
                             <a class="btn btn-link pl-0" href="{{ route('doctor.login') }}">
                                 {{ __('Sign in as Doctor') }}
                             </a>
-                            <a class="btn btn-link pl-0" href="{{ route('hospital.login') }}">
+                            {{-- <a class="btn btn-link pl-0" href="{{ route('hospital.login') }}">
                                 {{ __('Sign in as Organization') }}
-                            </a>
+                            </a> --}}
                         </div>
                     </div>
                 </div>

@@ -17,6 +17,7 @@ class DoctorTableSeeder extends Seeder
         $Doctor->address = 'Shagordhigi';
         $Doctor->phone = '01763930980';
         $Doctor->location = 'Sylhet';
+        $Doctor->degree = 'B.Sc, MBBS, DDVL, MD-Dermatology Dermatology, Trichologist, Cosmetologist, 14 Years Experience';
         $Doctor->specialties = 'Cardiologist';
         $Doctor->password = Hash::make('123456');
         $Doctor->save();
@@ -27,6 +28,7 @@ class DoctorTableSeeder extends Seeder
         $Doctor->address = 'Shagordhigi';
         $Doctor->phone = '01763930980';
         $Doctor->location = 'Sylhet';
+        $Doctor->degree = 'B.Sc, MBBS, DDVL, MD-Dermatology Dermatology, Trichologist, Cosmetologist, 14 Years Experience';
         $Doctor->specialties = 'Cardiologist';
         $Doctor->password = Hash::make('123456');
         $Doctor->save();
@@ -37,6 +39,7 @@ class DoctorTableSeeder extends Seeder
         $Doctor->address = 'Shagordhigi';
         $Doctor->phone = '01763930980';
         $Doctor->location = 'Sylhet';
+        $Doctor->degree = 'B.Sc, MBBS, DDVL, MD-Dermatology Dermatology, Trichologist, Cosmetologist, 14 Years Experience';
         $Doctor->specialties = 'Dentist';
         $Doctor->password = Hash::make('123456');
         $Doctor->save();
@@ -47,6 +50,7 @@ class DoctorTableSeeder extends Seeder
         $Doctor->address = 'Shagordhigi';
         $Doctor->phone = '01763930980';
         $Doctor->location = 'Sylhet';
+        $Doctor->degree = 'B.Sc, MBBS, DDVL, MD-Dermatology Dermatology, Trichologist, Cosmetologist, 14 Years Experience';
         $Doctor->specialties = 'Medicine';
         $Doctor->password = Hash::make('123456');
         $Doctor->save();
@@ -57,6 +61,7 @@ class DoctorTableSeeder extends Seeder
         $Doctor->address = 'Shagordhigi';
         $Doctor->phone = '01763930980';
         $Doctor->location = 'Sylhet';
+        $Doctor->degree = 'B.Sc, MBBS, DDVL, MD-Dermatology Dermatology, Trichologist, Cosmetologist, 14 Years Experience';
         $Doctor->specialties = 'Chest Medicine';
         $Doctor->password = Hash::make('123456');
         $Doctor->save();
@@ -67,6 +72,7 @@ class DoctorTableSeeder extends Seeder
         $Doctor->address = 'Shagordhigi';
         $Doctor->phone = '01763930980';
         $Doctor->location = 'Sylhet';
+        $Doctor->degree = 'B.Sc, MBBS, DDVL, MD-Dermatology Dermatology, Trichologist, Cosmetologist, 14 Years Experience';
         $Doctor->specialties = 'Chest Medicine';
         $Doctor->password = Hash::make('123456');
         $Doctor->save();
@@ -77,6 +83,7 @@ class DoctorTableSeeder extends Seeder
         $Doctor->address = 'Shagordhigi';
         $Doctor->phone = '01763930980';
         $Doctor->location = 'Sylhet';
+        $Doctor->degree = 'B.Sc, MBBS, DDVL, MD-Dermatology Dermatology, Trichologist, Cosmetologist, 14 Years Experience';
         $Doctor->specialties = 'Colorectal surgeon';
         $Doctor->password = Hash::make('123456');
         $Doctor->save();
@@ -87,6 +94,7 @@ class DoctorTableSeeder extends Seeder
         $Doctor->address = 'Shagordhigi';
         $Doctor->phone = '01763930980';
         $Doctor->location = 'Sylhet';
+        $Doctor->degree = 'B.Sc, MBBS, DDVL, MD-Dermatology Dermatology, Trichologist, Cosmetologist, 14 Years Experience';
         $Doctor->specialties = 'Dentist';
         $Doctor->password = Hash::make('123456');
         $Doctor->save();
@@ -97,6 +105,7 @@ class DoctorTableSeeder extends Seeder
         $Doctor->address = 'Shagordhigi';
         $Doctor->phone = '01763930980';
         $Doctor->location = 'Sylhet';
+        $Doctor->degree = 'B.Sc, MBBS, DDVL, MD-Dermatology Dermatology, Trichologist, Cosmetologist, 14 Years Experience';
         $Doctor->specialties = 'Dentist';
         $Doctor->password = Hash::make('123456');
         $Doctor->save();
@@ -107,6 +116,7 @@ class DoctorTableSeeder extends Seeder
         $Doctor->address = 'Shagordhigi';
         $Doctor->phone = '01763930980';
         $Doctor->location = 'Sylhet';
+        $Doctor->degree = 'B.Sc, MBBS, DDVL, MD-Dermatology Dermatology, Trichologist, Cosmetologist, 14 Years Experience';
         $Doctor->specialties = 'Dermatologist';
         $Doctor->password = Hash::make('123456');
         $Doctor->save();
@@ -117,6 +127,7 @@ class DoctorTableSeeder extends Seeder
         $Doctor->address = 'Shagordhigi';
         $Doctor->phone = '01763930980';
         $Doctor->location = 'Sylhet';
+        $Doctor->degree = 'B.Sc, MBBS, DDVL, MD-Dermatology Dermatology, Trichologist, Cosmetologist, 14 Years Experience';
         $Doctor->specialties = 'Dermatologist';
         $Doctor->password = Hash::make('123456');
         $Doctor->save();
@@ -127,6 +138,7 @@ class DoctorTableSeeder extends Seeder
         $Doctor->address = 'Shagordhigi';
         $Doctor->phone = '01763930980';
         $Doctor->location = 'Sylhet';
+        $Doctor->degree = 'B.Sc, MBBS, DDVL, MD-Dermatology Dermatology, Trichologist, Cosmetologist, 14 Years Experience';
         $Doctor->specialties = 'Endrocrinology';
         $Doctor->password = Hash::make('123456');
         $Doctor->save();
@@ -137,6 +149,7 @@ class DoctorTableSeeder extends Seeder
         $Doctor->address = 'Shagordhigi';
         $Doctor->phone = '01763930980';
         $Doctor->location = 'Sylhet';
+        $Doctor->degree = 'B.Sc, MBBS, DDVL, MD-Dermatology Dermatology, Trichologist, Cosmetologist, 14 Years Experience';
         $Doctor->specialties = 'Endrocrinology';
         $Doctor->password = Hash::make('123456');
         $Doctor->save();
@@ -147,6 +160,7 @@ class DoctorTableSeeder extends Seeder
         $Doctor->address = 'Shagordhigi';
         $Doctor->phone = '01763930980';
         $Doctor->location = 'Sylhet';
+        $Doctor->degree = 'B.Sc, MBBS, DDVL, MD-Dermatology Dermatology, Trichologist, Cosmetologist, 14 Years Experience';
         $Doctor->specialties = 'ENT specialist';
         $Doctor->password = Hash::make('123456');
         $Doctor->save();
@@ -157,6 +171,7 @@ class DoctorTableSeeder extends Seeder
         $Doctor->address = 'Shagordhigi';
         $Doctor->phone = '01763930980';
         $Doctor->location = 'Sylhet';
+        $Doctor->degree = 'B.Sc, MBBS, DDVL, MD-Dermatology Dermatology, Trichologist, Cosmetologist, 14 Years Experience';
         $Doctor->specialties = 'ENT specialist';
         $Doctor->password = Hash::make('123456');
         $Doctor->save();
@@ -167,6 +182,7 @@ class DoctorTableSeeder extends Seeder
         $Doctor->address = 'Shagordhigi';
         $Doctor->phone = '01763930980';
         $Doctor->location = 'Sylhet';
+        $Doctor->degree = 'B.Sc, MBBS, DDVL, MD-Dermatology Dermatology, Trichologist, Cosmetologist, 14 Years Experience';
         $Doctor->specialties = 'General Surgery';
         $Doctor->password = Hash::make('123456');
         $Doctor->save();
@@ -177,6 +193,7 @@ class DoctorTableSeeder extends Seeder
         $Doctor->address = 'Shagordhigi';
         $Doctor->phone = '01763930980';
         $Doctor->location = 'Sylhet';
+        $Doctor->degree = 'B.Sc, MBBS, DDVL, MD-Dermatology Dermatology, Trichologist, Cosmetologist, 14 Years Experience';
         $Doctor->specialties = 'General Surgery';
         $Doctor->password = Hash::make('123456');
         $Doctor->save();
@@ -187,6 +204,7 @@ class DoctorTableSeeder extends Seeder
         $Doctor->address = 'Shagordhigi';
         $Doctor->phone = '01763930921';
         $Doctor->location = 'Sylhet';
+        $Doctor->degree = 'B.Sc, MBBS, DDVL, MD-Dermatology Dermatology, Trichologist, Cosmetologist, 14 Years Experience';
         $Doctor->specialties = 'Gynecology';
         $Doctor->password = Hash::make('123456');
         $Doctor->save();
@@ -197,6 +215,7 @@ class DoctorTableSeeder extends Seeder
         $Doctor->address = 'Shagordhigi';
         $Doctor->phone = '01763930980';
         $Doctor->location = 'Sylhet';
+        $Doctor->degree = 'B.Sc, MBBS, DDVL, MD-Dermatology Dermatology, Trichologist, Cosmetologist, 14 Years Experience';
         $Doctor->specialties = 'Gynecology';
         $Doctor->password = Hash::make('123456');
         $Doctor->save();
@@ -207,6 +226,7 @@ class DoctorTableSeeder extends Seeder
         $Doctor->address = 'Shagordhigi';
         $Doctor->phone = '01763930921';
         $Doctor->location = 'Sylhet';
+        $Doctor->degree = 'B.Sc, MBBS, DDVL, MD-Dermatology Dermatology, Trichologist, Cosmetologist, 14 Years Experience';
         $Doctor->specialties = 'Liver Specialist';
         $Doctor->password = Hash::make('123456');
         $Doctor->save();
@@ -217,6 +237,7 @@ class DoctorTableSeeder extends Seeder
         $Doctor->address = 'Shagordhigi';
         $Doctor->phone = '01763930965';
         $Doctor->location = 'Sylhet';
+        $Doctor->degree = 'B.Sc, MBBS, DDVL, MD-Dermatology Dermatology, Trichologist, Cosmetologist, 14 Years Experience';
         $Doctor->specialties = 'Liver Specialist';
         $Doctor->password = Hash::make('123456');
         $Doctor->save();
@@ -227,6 +248,7 @@ class DoctorTableSeeder extends Seeder
         $Doctor->address = 'Shagordhigi';
         $Doctor->phone = '01763930921';
         $Doctor->location = 'Sylhet';
+        $Doctor->degree = 'B.Sc, MBBS, DDVL, MD-Dermatology Dermatology, Trichologist, Cosmetologist, 14 Years Experience';
         $Doctor->specialties = 'Medicine';
         $Doctor->password = Hash::make('123456');
         $Doctor->save();
@@ -237,6 +259,7 @@ class DoctorTableSeeder extends Seeder
         $Doctor->address = 'Shagordhigi';
         $Doctor->phone = '01763930965';
         $Doctor->location = 'Sylhet';
+        $Doctor->degree = 'B.Sc, MBBS, DDVL, MD-Dermatology Dermatology, Trichologist, Cosmetologist, 14 Years Experience';
         $Doctor->specialties = 'Medicine';
         $Doctor->password = Hash::make('123456');
         $Doctor->save();
@@ -247,6 +270,7 @@ class DoctorTableSeeder extends Seeder
         $Doctor->address = 'Shagordhigi';
         $Doctor->phone = '01763930922';
         $Doctor->location = 'Sylhet';
+        $Doctor->degree = 'B.Sc, MBBS, DDVL, MD-Dermatology Dermatology, Trichologist, Cosmetologist, 14 Years Experience';
         $Doctor->specialties = 'Nephrologist';
         $Doctor->password = Hash::make('123456');
         $Doctor->save();
@@ -257,6 +281,7 @@ class DoctorTableSeeder extends Seeder
         $Doctor->address = 'Shagordhigi';
         $Doctor->phone = '01763930934';
         $Doctor->location = 'Sylhet';
+        $Doctor->degree = 'B.Sc, MBBS, DDVL, MD-Dermatology Dermatology, Trichologist, Cosmetologist, 14 Years Experience';
         $Doctor->specialties = 'Neurology';
         $Doctor->password = Hash::make('123456');
         $Doctor->save();
@@ -267,6 +292,7 @@ class DoctorTableSeeder extends Seeder
         $Doctor->address = 'Shagordhigi';
         $Doctor->phone = '01763930928';
         $Doctor->location = 'Sylhet';
+        $Doctor->degree = 'B.Sc, MBBS, DDVL, MD-Dermatology Dermatology, Trichologist, Cosmetologist, 14 Years Experience';
         $Doctor->specialties = 'Neurology';
         $Doctor->password = Hash::make('123456');
         $Doctor->save();
@@ -277,6 +303,7 @@ class DoctorTableSeeder extends Seeder
         $Doctor->address = 'Shagordhigi';
         $Doctor->phone = '01763930937';
         $Doctor->location = 'Sylhet';
+        $Doctor->degree = 'B.Sc, MBBS, DDVL, MD-Dermatology Dermatology, Trichologist, Cosmetologist, 14 Years Experience';
         $Doctor->specialties = 'Nephrologist';
         $Doctor->password = Hash::make('123456');
         $Doctor->save();
@@ -287,6 +314,7 @@ class DoctorTableSeeder extends Seeder
         $Doctor->address = 'Shagordhigi';
         $Doctor->phone = '01763930928';
         $Doctor->location = 'Sylhet';
+        $Doctor->degree = 'B.Sc, MBBS, DDVL, MD-Dermatology Dermatology, Trichologist, Cosmetologist, 14 Years Experience';
         $Doctor->specialties = 'Neurology';
         $Doctor->password = Hash::make('123456');
         $Doctor->save();

@@ -4,70 +4,124 @@
 
         <!-- items -->
       <div class="doc_feedback_tabs">
-        <p class="feed">Feedback for Dr.sdhkhf fdkhgojerg kghiuh</p>
-        <p class="comment">These are patient's opinions and do not necessarlly reflect the doctor's medical capabilities . <span>Read More</span></p>
+        <div  v-if="user_id!=0">
+        <p class="feed">Give Feedback </p>
+        <p class="comment">These are patient's opinions and do not necessarlly reflect the doctor's medical capabilities.</p>
 
         <div class="doc_feedback_tabs_filter b_color">
           <div class="dis doc_feedback_tabs_filter_top">
-            <p class="treatment">Filter by health problem/treatment</p>
+       
+            
+              <Input v-model="review"  type="textarea" :rows="4" placeholder="Enter something..." />
+            
+          
             <div class="flex_space"></div>
             <div class="doc_feedback_tabs_filter_top_select">
-              <select class="form-control b_color home_ser_input" id="exampleFormControlSelect1">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                </select>
+             
             </div>
           </div>
 
-          <div class="doc_feedback_tabs_filter_taps">
-            <p class="all">All</p>
-            <p class="tabs">Acne/Pimples Treatment</p>
-            <p class="tabs">Hair Loss Treatment</p>
-            <p class="tabs">Eczama</p>
-            <p class="tabs">Skin Treatment</p>
-          </div>
+         <Button type="primary" class="m-1" @click="makeReview" >Submit</Button>
+        
+         	 
+         	
+        </div>
+       
         </div>
 
+        <hr>
+       
         <div class="dis doc_feedback_tabs_filter_found">
-          <p class="doc_feedback_tabs_filter_found_results">1019 results</p>
+          <p class="doc_feedback_tabs_filter_found_results">{{reviewData.length}} Feedback</p>
 
           <div class="flex_space"></div>
 
           <div class="sorts doc_feedback_tabs_filter_top_select">
-            <p class="doc_by">Sort By</p>
-            <select class="form-control b_color home_ser_input" id="exampleFormControlSelect1">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-              </select>
+            
           </div>
         </div>
-
+         <div v-for="(item,index) in reviewData " :key="index" >
         <div class="dis doc_verified b_color">
           <div class="doc_verified_pic">
-            <img class="doc_verified_image" src="img/V90.jpg" alt="" title="">
+            <img class="doc_verified_image" :src="BASE_URL+item.users.image" alt="" title="">
           </div>
 
           <div class="flex_space">
             <p class="ver_p">Verified Patient</p>
-            <p class="treatment">Filter by health problem/treatment</p>
+            <p class="treatment"></p>
 
-            <p class="recommend">1 recommend the doctor</p>
+            <p class="recommend">{{item.users.name}}</p>
 
-            <p class="doc_verified_text">tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non</p>
-            <p class="doc_verified_date">6 Days ago</p>
+            <p class="doc_verified_text">{{item.details}}</p>
+            <p class="doc_verified_date">{{item.date}}</p>
+          </div>
+          <hr>
           </div>
         </div>
       </div>
         <!-- items -->
     </div>
       <!-- components -->
-</template
+</template>
+<script>
+  export default {
+    data(){
+      return{
+        review:'',
+        date:(new Date().toISOString().slice(0,10)),
+        reviewData:'',
+      
+      }      
+    },
+    methods:{
+
+     async makeReview(){
+      console.log("i am here");
+      if(this.review==''){
+        this.e('Please fill the review field');
+        return
+      }
+      let AuthData = {
+        'doctor_id':this.doctor.id,
+        'user_id':this.user_id,
+        'details':this.review,
+        'date':this.date,
+      }
+      console.log(AuthData);
+
+      const info = await this.callApi('post','/makeReviewByUser',AuthData)
+			if(info.status===201){
+          this.review='';
+          this.s('Review Successfully given ');
+          this.fetchReview();
+       
+      }
+      else{
+        this.swr();
+      }
+      },
+
+      async fetchReview(){
+
+        const info = await this.callApi('get', `/getReviewById/${this.doctor.id}`)
+			if(info.status===200){
+      
+          this.reviewData=info.data;
+       
+      }
+      else{
+        this.swr();
+      
+      }
+
+      }
+
+    },
+     created(){
+       this.fetchReview();
+      
+
+    }
+    
+  }
+</script>

@@ -82,7 +82,7 @@
                             </div>
                         </div>
                     </form>
-                    <div class="form-group row mb-0">
+                    {{-- <div class="form-group row mb-0">
                         <div class="col-md-6 offset-md-4 ">
                             <a class="btn btn-link pl-0" href="{{ route('doctor.register') }}">
                                 {{ __('Register as Doctor') }}
@@ -91,7 +91,7 @@
                                 {{ __('Register as Organization') }}
                             </a>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>

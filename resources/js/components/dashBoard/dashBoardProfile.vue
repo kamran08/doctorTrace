@@ -23,12 +23,12 @@
                               <div class="text-center card-box">
                                   <div class="member-card">
                                       <div class="thumb-xl member-thumb m-b-10 center-block">
-                                            <div class="img__wrap"><a href="#" >
-                                                <img src="doctor/img/12.jpg" class="img-circle img-thumbnail img__wrap" alt="profile-image">
+                                            <div class="img__wrap" @click="checkUser" >
+                                                <img :src="BASE_URL+img" class="img-circle img-thumbnail img__wrap" alt="profile-image">
                                                     <div class="img__description_layer">
                                                         <p class="img__description">update</p>
                                                     </div>
-                                            </a></div>
+                                            </div>
                                           <i class="mdi mdi-star-circle member-star text-success" title="verified user"></i>
                                       </div>
 
@@ -116,6 +116,27 @@
           </div>
           <!-- End row -->
 
+                  <Modal
+        v-model="showUploadModal"
+        title="Upload your profile picture"
+        :closable = "false"
+       >
+       <Upload
+       
+            type="drag"
+            action="/doctorPicUpdate"
+            :on-success="handleSuccess"
+            >
+            <div style="padding: 20px 0">
+                <Icon type="ios-cloud-upload" size="52" style="color: #3399ff"></Icon>
+                <p>Click or drag files here to upload</p>
+            </div>
+        </Upload>
+        <div slot="footer">
+            <Button @click="showUploadModal=false">Close</Button>
+        </div>
+    </Modal>
+
 
 
       </div> <!-- container -->
@@ -131,8 +152,30 @@ export default {
     data(){
         return{
             msg:'I am from Profile Tab',
+            img: '',
+            showUploadModal:false,
         }
-    }
+    },
+      created() {
+
+          
+            this.img = this.doctor.image;
+
+
+        },
+
+        methods:{
+                handleSuccess (res, file) {
+                console.log(res)
+                this.img = `/uploads/${res}`
+                this.showUploadModal = false
+            },
+            checkUser(){
+
+                    this.showUploadModal=true;
+         
+            },
+        }
 
 }
 </script>

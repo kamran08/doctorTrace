@@ -16,20 +16,21 @@ class Doctor extends Authenticatable
           * @var array
           */
     protected $fillable = [
-        'name', 'email', 'password','address','phone','chamber_location',
-        'degree','sitting_time'
+        'name', 'email', 'password','address','phone','location',
+        'degree','specialties',
     ];
 
     protected $hidden = [
         'password', 'remember_token',
     ];
 
-    public function degrees()
-    {
-        return $this->belongsToMany('App\Degree', 'doctor_degree', 'doctor_id', 'degree_id')->withTimestamps();
-    }
+
 
     public function appointments(){
             return $this->hasMany('App\Appointment');
+        }
+
+        public function review(){
+            return $this->hasMany('App\Review');
         }
 }

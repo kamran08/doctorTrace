@@ -4,7 +4,7 @@
 
         <!-- items -->
       <div class="doc_info_tabs">
-        <p class="hospital_location feed">Medical Road, Sylhet</p>
+        <p class="hospital_location feed">{{doctor.address}}, {{doctor.location}}</p>
         <div class="hospital_details row mt-2">
           <div class="col-md-4 details_left">
             <div class="hospital_name">

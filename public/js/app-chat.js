@@ -6,14 +6,17 @@ $(function () {
 		
 	 // chat app scrolling
 	
-		 var height = $(window).height();
+		var height = $(window).height();
+		var width = $(window).width();
+		console.log(height);
+		
 
-		 if (height >= 1080) {
+		 if (width >= 1500 && height >= 750) {
 			$('#chat-app').slimScroll({
-				height: '680px'
+				height: '430px'
 				});	
 		 }
-		 else if (height >= 636) {
+		 else if (width < 1500 && height < 750) {
 			$('#chat-app').slimScroll({
 				height: '350px'
 				});	

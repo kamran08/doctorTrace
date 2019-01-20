@@ -94,7 +94,20 @@
                         {{-- Sitting Time --}}
 
                         <div class="form-group row">
-                            <label for="specialties" class="col-md-4 col-form-label text-md-right">{{ __('Specialties') }}</label>
+                            <label for="degree" class="col-md-4 col-form-label text-md-right">{{ __('Degree Information') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="degree" type="text" class="form-control{{ $errors->has('degree') ? ' is-invalid' : '' }}" name="degree" value="{{ old('degree') }}" required>
+
+                                @if ($errors->has('degree'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('degree') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="Specialties" class="col-md-4 col-form-label text-md-right">{{ __('Specialties') }}</label>
 
                             <div class="col-md-6">
                                 <input id="specialties" type="text" class="form-control{{ $errors->has('specialties') ? ' is-invalid' : '' }}" name="specialties" value="{{ old('specialties') }}" required>
@@ -144,9 +157,9 @@
                             <a class="btn btn-link pl-0" href="{{ route('register') }}">
                                 {{ __('Sign up as User') }}
                             </a>
-                            <a class="btn btn-link pl-0" href="{{ route('hospital.register') }}">
+                            {{-- <a class="btn btn-link pl-0" href="{{ route('hospital.register') }}">
                                 {{ __('Sign up as  Organization') }}
-                            </a>
+                            </a> --}}
                         </div>
                     </div>
                 </div>

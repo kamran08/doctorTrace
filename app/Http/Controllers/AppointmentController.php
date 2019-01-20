@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Appointment;
 use Illuminate\Http\Request;
+use App\Doctor;
+use App\Review;
+use App\User;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -124,4 +127,35 @@ class AppointmentController extends Controller
             
         ],200);
     }
+
+    public function makeReviewByUser(Request $request){
+
+        $data  = $request->all();
+
+        return  Review::create($data);
+
+   }
+    public function getReviewById($id){
+        return Review::where('doctor_id',$id)->with('doctors')->with('users')->orderBy('date', 'desc')->get();
+    }
+    public function upload(Request $request){
+        $id=$request->product_id;
+        request()->file('file')->store('uploads');
+        $pic= $request->file->hashName();
+        Log::info($pic);
+        /*update the profile pic*/
+        $id= Auth::user()->id;
+        $flag =  User::where('id', $id)->update(['image' => "/uploads/$pic"]);
+        if($flag){
+            return $pic;
+        }
+        else{
+            return response()->json([
+                'message' => "Picture Upload Failed!!",
+                
+            ],403);
+        }
+    }
+
+
 }

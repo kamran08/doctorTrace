@@ -12,6 +12,9 @@
               			<li class="has_sub">
                   			<a class="waves-effect"><i class="mdi mdi-view-dashboard"></i><span>Finished Appointment </span> </a>
               			</li>
+              			<li class="has_sub">
+                  			<a @click="changeTab(3)"class="waves-effect"><i class="mdi mdi-view-dashboard"></i><span>Schedule </span> </a>
+              			</li>
 						<li class="menu-title">Extra</li>
               			<li class="has_sub">
                   			<a @click="changeTab(1)" class="waves-effect"><i class="mdi mdi-view-dashboard"></i><span> Profile </span> </a>
@@ -39,12 +42,12 @@ export default {
 	  methods: {
 		changeTab(id){
 
-  			if(id==1){
-                this.$store.dispatch('doctor/updateTab',1);
-  			}
-  			else if(id==2){
-    			 this.$store.dispatch('doctor/updateTab',2);
-  			}
+  		
+                this.$store.dispatch('doctor/updateTab',id);
+  		
+  			
+    		
+  		
 		}
 	},
 	

@@ -3,6 +3,7 @@
 		<dashBoardMenu/>	
 		<dashBoardProfile v-if="(LinkFlagTab==1)"/>	
 		<dashBoardMain v-if="(LinkFlagTab==2)"/>	
+		<dashBoardShedule v-if="(LinkFlagTab==3)"/>	
 	</div>
 </template>
 
@@ -10,12 +11,14 @@
 import dashBoardMain from '../components/dashBoard/dashBoardMain.vue';
 import dashBoardProfile from '../components/dashBoard/dashBoardProfile.vue';
 import dashBoardMenu from '../components/dashBoard/dashBoardMenu.vue';
+import dashBoardShedule from '../components/dashBoard/dashBoardShedule.vue';
 export default {
 	props: ['gid'],
 	components: {
     dashBoardMain,
     dashBoardProfile,
     dashBoardMenu,
+    dashBoardShedule,
   },
 	data(){
 		return{

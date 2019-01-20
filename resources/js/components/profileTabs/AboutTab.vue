@@ -2,12 +2,12 @@
   <div class="profile_tabs_components">
       <div class="doc_profile_tabs dis">
         <div class="doc_profile_tabs_img">
-          <img class="doc_profile_tabs_image"   v-bind:src="BASE_URL+'/img/V90.jpg'" >
+          <img class="doc_profile_tabs_image"   v-bind:src="BASE_URL+doctor.image" >
         </div>
         <div class="doc_profile_tabs_details flex_space">
-          <p class="doc_profile_tabs_details_name">Dr. Parthddathi Dutta Ray <span>Profile is claimbed</span></p>
-          <p class="doc_profile_tabs_details_deg">B.Sc, MBBS, DDVL, MD-Dermatology</p>
-          <p class="doc_profile_tabs_details_post"><i class="fas fa-thumbs-up"></i>Dermatology, Trichologist, Cosmetologist, 14 Years Experience</p>
+          <p class="doc_profile_tabs_details_name">{{doctor.name}}<span>  Profile is claimbed</span></p>
+          <p class="doc_profile_tabs_details_deg">{{doctor.specialties}}</p>
+          <p class="doc_profile_tabs_details_post"><i class="fas fa-thumbs-up"></i>{{doctor.degree}}</p>
           <div class="fliter_main_details_all dis">
               <div class="fliter_main_details_icons"></div>
               <div class="fliter_main_details_text">
@@ -87,12 +87,14 @@ export default {
       console.log(AuthData);
       const info = await this.callApi('post', '/makeAppointment',AuthData)
 			if(info.status===200){
-        this.$store.dispatch('user/Msg_UPDATED',info.data.message);
+        this.s(info.data.message);
+       
 
         this.$store.dispatch('user/AppointmentSerial_UPDATED',(No-1));
       }
       else{
         let msg = "Error : "+info
+        this.e(msg)
         console.log(msg)
       }
       

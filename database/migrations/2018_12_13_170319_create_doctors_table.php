@@ -20,6 +20,8 @@ class CreateDoctorsTable extends Migration
             $table->string('address');
             $table->string('phone');
             $table->string('location');
+            $table->string('degree');
+            $table->string('image')->default('/uploads/122.png');
             $table->string('specialties');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

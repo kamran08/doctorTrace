@@ -13,7 +13,7 @@
                         </div>
                     </div>
                     <!-- end row -->
-                   <div class="row">
+                   <!-- <div class="row">
 
                        <div class="col-lg-3 col-md-6">
                          <div class="card-box widget-box-two widget-two-info">
@@ -24,7 +24,7 @@
                                  <p class="m-0"><b>Last:</b> 30.4k</p>
                              </div>
                          </div>
-                       </div><!-- end col -->
+                       </div>
 
                        <div class="col-lg-3 col-md-6">
                          <div class="card-box widget-box-two widget-two-primary">
@@ -35,7 +35,7 @@
                                  <p class="m-0"><b>Last:</b> 40.33k</p>
                              </div>
                          </div>
-                       </div><!-- end col -->
+                       </div>
 
                        <div class="col-lg-3 col-md-6">
                          <div class="card-box widget-box-two widget-two-danger">
@@ -46,7 +46,7 @@
                                  <p class="m-0"><b>Last:</b> 30.4k</p>
                              </div>
                          </div>
-                       </div><!-- end col -->
+                       </div>
 
                        <div class="col-lg-3 col-md-6">
                          <div class="card-box widget-box-two widget-two-success">
@@ -57,9 +57,9 @@
                                  <p class="m-0"><b>Last:</b> 1250</p>
                              </div>
                          </div>
-                       </div><!-- end col -->
+                       </div>
 
-                    </div>
+                    </div> -->
                     <!-- end row -->
 
 
