@@ -66,15 +66,10 @@
 export default {
     data(){
         return{
-            boxChat:[
-                // {
-                //     botShowChatT:'',
-                //     userShowChatT:'',
-                // },
-            ],
+            boxChat:[],
+            allDoctors:[],
 
-           // botShowChatT:[],
-          //  userShowChatT:[],
+
             
             userWriteChat:'',
             botShowChat:'',
@@ -102,7 +97,9 @@ export default {
             const res = await this.callApi('post', 'https://api.dialogflow.com/v1/query?v=20180101',obj)
             if(res.status == 200){
                let msg = res.data.result.fulfillment.speech;
-               
+
+              
+               this.backgroudProcess(msg);
               
                this.chats.push({
                   msgFrom: 'bot', 
@@ -116,10 +113,27 @@ export default {
 
           
        },
+
+       backgroudProcess(msg){
+          
+            var re = msg.split("/", 1);
+            console.log("i am backroud")
+            console.log(re)
+       },
+      async getAllDoctorName(){
+           const res = await this.callApi('get', '/getAllDoctorName');
+             if(res.status == 200){
+               this.allDoctors = res.data;
+            }
+            else{
+                this.swr();
+            }
+       }
+
    },
    created(){
 
-       // this.callApiBot('Dr Salma');
+      this.getAllDoctorName();
    }
 
 }

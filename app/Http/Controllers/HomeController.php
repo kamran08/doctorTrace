@@ -14,48 +14,27 @@ use DateTime;
 use DateInterval;
 
 class HomeController extends Controller{
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct(){
 
-    }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
+    public function index(){
         return view('home');
     }
     public function doctorProfile($id){
-
         $doctor = Doctor::where('id', $id)->first();
-
         $doctorSuggestion = Doctor::where('specialties', $doctor->specialties)->limit(4)->get();
         Log::info($doctorSuggestion);
-
-        
-
-        
         return view('profiles.index', ['doctor' => $doctor,'doctorSuggestion' => $doctorSuggestion]);
     }
     public function userProfile($id){
-
         $user = User::where('id', $id)->first();
-        
         return view('profiles.user', ['user' => $user]);
     }
     public function showDLogin(){
-  
         return view('doctor.login');
     }
     public function showDRegistration(){
-
         return view('doctor.register');
+    }
+    public function getAllDoctorName(){
+        return Doctor::select('name')->get();
     }
 }

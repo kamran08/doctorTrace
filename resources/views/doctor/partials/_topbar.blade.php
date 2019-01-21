@@ -3,7 +3,7 @@
 
   <!-- LOGO -->
   <div class="topbar-left">
-      <a href="index.html" class="logo"><span>Zir<span>cos</span></span><i class="mdi mdi-cube"></i></a>
+      <a href="index.html" class="logo"><span>Doctor</span><i class="mdi mdi-cube"></i></a>
       <!-- Image logo -->
       <!--<a href="index.html" class="logo">-->
           <!--<span>-->
@@ -25,9 +25,6 @@
                   <button class="button-menu-mobile open-left waves-effect waves-light">
                       <i class="mdi mdi-menu"></i>
                   </button>
-              </li>
-              <li class="hidden-xs">
-                  <a href="#" class="menu-item waves-effect waves-light">New</a>
               </li>
           </ul>
 

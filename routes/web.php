@@ -29,6 +29,7 @@ Route::get('userprofile/{id}', [
     // 'middleware' => ['auth'],
     'as' => 'user.profile'
 ]);
+
 // Doctor's Routing
 
 Route::get('dlogin', [
@@ -42,6 +43,10 @@ Route::get('dregistration', [
     'uses' => 'HomeController@showDRegistration',
     'middleware' => ['guest'],
     'as' => 'doctor.register'
+]);
+Route::get('/getAllDoctorName', [
+    'uses' => 'HomeController@getAllDoctorName',
+    'as' => 'getAllDoctorName'
 ]);
 
 

@@ -44,6 +44,7 @@ class DoctorController extends Controller
         ],200);
     }
 
+
     public function dashBoardFetchData($date){
 
         $id= Auth::guard('doctor')->user()->id;

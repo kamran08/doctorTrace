@@ -10,10 +10,7 @@
                   			<a @click="changeTab(2)" class="waves-effect"><i class="mdi mdi-view-dashboard"></i><span>Dashboard </span> </a>
               			</li>
               			<li class="has_sub">
-                  			<a class="waves-effect"><i class="mdi mdi-view-dashboard"></i><span>Finished Appointment </span> </a>
-              			</li>
-              			<li class="has_sub">
-                  			<a @click="changeTab(3)"class="waves-effect"><i class="mdi mdi-view-dashboard"></i><span>Schedule </span> </a>
+                  			<a @click="changeTab(3)" class="waves-effect"><i class="mdi mdi-view-dashboard"></i><span>Schedule </span> </a>
               			</li>
 						<li class="menu-title">Extra</li>
               			<li class="has_sub">
