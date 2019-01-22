@@ -32,16 +32,17 @@ Route::get('userprofile/{id}', [
 
 // Doctor's Routing
 
-Route::get('dlogin', [
-    'uses' => 'HomeController@showDLogin',
+Route::get('/dlogin', [
     'middleware' => ['guest'],
+    'uses' => 'HomeController@showDLogin',
+    
     'as' => 'doctor.login'
 ]);
 
 
 Route::get('dregistration', [
     'uses' => 'HomeController@showDRegistration',
-    'middleware' => ['guest'],
+    'middleware' => ['guest','guest:doctor'],
     'as' => 'doctor.register'
 ]);
 Route::get('/getAllDoctorName', [
@@ -60,12 +61,17 @@ Route::post('/doctorPicUpdate', [
 ]);
 
 
-Route::post('/dlogin', 'Auth\doctorLoginController@login')->name('doctor.login.submit');
+//Route::post('/dlogin', 'Auth\doctorLoginController@login')->name('doctor.login.submit');
 
 Route::get('profile/{id}', [
     'uses' => 'HomeController@doctorProfile',
     // 'middleware' => ['auth'],
     'as' => 'profile'
+]);
+Route::post('/dloginsubmit', [
+    'uses' => 'Auth\doctorLoginController@login',
+     'middleware' => ['guest','guest:doctor'],
+    'as' => 'doctor.login.submit'
 ]);
 
 // doctor dashboard
@@ -84,6 +90,11 @@ Route::post('/updateStatus', [
     'uses' => 'DoctorController@updateStatus',
     //'middleware' => ['auth:doctor'],
     'as' => 'doctor.updateStatus'
+]);
+Route::post('/deleteStatus', [
+    'uses' => 'DoctorController@deleteStatus',
+    //'middleware' => ['auth:doctor'],
+    'as' => 'doctor.deleteStatus'
 ]);
 
 Route::get('/dfinished', function () {

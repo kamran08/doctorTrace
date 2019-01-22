@@ -64,6 +64,7 @@
 
 <script>
 export default {
+   props: ['gid'],
     data(){
         return{
             boxChat:[],
@@ -99,7 +100,7 @@ export default {
                let msg = res.data.result.fulfillment.speech;
 
               
-               this.backgroudProcess(msg);
+               msg = this.backgroudProcess(msg);
               
                this.chats.push({
                   msgFrom: 'bot', 
@@ -116,25 +117,110 @@ export default {
 
        backgroudProcess(msg){
           
-            var re = msg.split("/", 1);
+            var re = msg.split("/");
             console.log("i am backroud")
+            if(re[0]== '**'){
+               console.log(this.gid.user_id);
+               if(this.gid.user_id == 0){
+                  msg = "Please Login to  make any appointment";
+               }
+               else{
+                  let doctor = this.findDoctorByName(re[1])
+
+                 let flag =  this.makeAppointment(doctor.id,this.gid.user_id,re[2])
+
+                 if(flag){
+                     msg = "Booking Confirmed!! Please check your profile dashboard";
+                 }
+                 else{
+                    msg = "Sorry Service not available right now"
+                 }
+               }
+              
+            }
+            else if(re[0] == '***'){
+                msg = "You should consult with a "+re[1]+" For your "+re[2]+" Problem . "
+                 let info =this.findDoctorBySpecialties(re[1],re[2]);
+
+                  console.log(info)
+
+                  if(info.doctor.length>0){
+                        msg = msg+'\n'+info.msg
+                  }
+
+            }
             console.log(re)
+
+            return msg;
        },
       async getAllDoctorName(){
            const res = await this.callApi('get', '/getAllDoctorName');
              if(res.status == 200){
                this.allDoctors = res.data;
+               console.log(this.allDoctors)
             }
-            else{
+            else{j
                 this.swr();
             }
-       }
+       },
+          findDoctorBySpecialties(specialties,problem){
+               let msg = ' Here are some doctors you can consult with your ' +problem+' problem';
+               let doctor = [];
+               console.log(this.allDoctors);
+                for(let d of this.allDoctors){
+                   console.log("| d name " + d.specialties);
+                     if(d.specialties == specialties){
+                         msg = msg+' '+d.name
+                         doctor.push(d);
+                     }
+
+                     return {'msg': msg,'doctor':doctor};
+                }
+               
+               
+            },
+          findDoctorByName(name){
+               // console.log("name " + name);
+               console.log(this.allDoctors);
+                for(let d of this.allDoctors){
+                   console.log("d name " + d.name);
+                     if(d.name == name){
+                         return d;
+                     }
+                }
+               
+               
+            },
+            async  makeAppointment(doctor_id,user_id,date){
+               console.log("i am here");
+               let AuthData = {
+               'doctor_id':doctor_id,
+               'user_id':user_id,
+               'serial':1,
+               'date':date,
+               }
+               console.log(AuthData);
+               const info = await this.callApi('post', '/makeAppointment',AuthData)
+                  if(info.status===200){
+               this.s(info.data.message);
+               return 1;
+               }
+               else{
+               let msg = "Error : "+info
+               this.e(msg)
+               console.log(msg)
+               return 0;
+               }
+               
+            },
 
    },
    created(){
 
       this.getAllDoctorName();
-   }
+   },
+   
+
 
 }
 </script>

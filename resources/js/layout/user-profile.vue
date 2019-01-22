@@ -13,13 +13,13 @@
                 </div>
                 <div class="col-md-6">
                     <div class="profile-head">
-                        <h5>
+                        <h3 class="p-2" >
                             {{user.name}}
-                        </h5>
-                        <h6>
+                        </h3>
+                        <h5 class="p-2" >
                             Normal User
-                        </h6>
-                        <p class="proile-rating">RANKINGS : <span>8/10</span></p>
+                        </h5>
+                       
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item">
                                 <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true" @click="changeTab(1)" >About</a>
@@ -30,9 +30,9 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-2">
+                <!-- <div class="col-md-2">
                     <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile" />
-                </div>
+                </div> -->
             </div>
             <div class="row">
                 <div class="col-md-4">

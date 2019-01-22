@@ -61,6 +61,6 @@ class SearchController extends Controller
     }
 
     public function showAllDoctor(){
-        return  Doctor::all();
+        return  Doctor::with('review')->get();
     }
 }

@@ -20,7 +20,10 @@ class HomeController extends Controller{
     }
     public function doctorProfile($id){
         $doctor = Doctor::where('id', $id)->first();
-        $doctorSuggestion = Doctor::where('specialties', $doctor->specialties)->limit(4)->get();
+        $doctorSuggestion = Doctor::where('specialties', $doctor->specialties)
+        ->whereNotIn('id', [$id])
+        ->limit(4)
+        ->get();
         Log::info($doctorSuggestion);
         return view('profiles.index', ['doctor' => $doctor,'doctorSuggestion' => $doctorSuggestion]);
     }
@@ -35,6 +38,6 @@ class HomeController extends Controller{
         return view('doctor.register');
     }
     public function getAllDoctorName(){
-        return Doctor::select('name')->get();
+        return Doctor::select('name','id','specialties')->get();
     }
 }

@@ -587,7 +587,10 @@ img{
 .button_one{
     margin-bottom: 10px;
 }
-
+.fliter_main_details {
+    max-width: 270px;
+    padding: 0 293px 0;
+}
 
 
 

@@ -3,7 +3,7 @@
 
   <!-- LOGO -->
   <div class="topbar-left">
-      <a href="index.html" class="logo"><span>Doctor</span><i class="mdi mdi-cube"></i></a>
+      <a href="{{ route('home') }}" class="logo"><span>Doctor</span><i class="mdi mdi-cube"></i></a>
       <!-- Image logo -->
       <!--<a href="index.html" class="logo">-->
           <!--<span>-->
@@ -33,7 +33,7 @@
               <li>
                   <a href="#" class="right-menu-item dropdown-toggle" data-toggle="dropdown">
                       <i class="mdi mdi-bell"></i>
-                      <span class="badge up bg-primary">4</span>
+                      <span class="badge up bg-primary"></span>
                   </a>
 
                   <ul class="dropdown-menu dropdown-menu-right arrow-dropdown-menu arrow-menu-right dropdown-lg user-list notify-list">
@@ -81,7 +81,7 @@
 
               <li class="dropdown user-box">
                   <a href="" class="dropdown-toggle waves-effect waves-light user-link" data-toggle="dropdown" aria-expanded="true">
-                      <img src="doctor/img/12.jpg" alt="user-img" class="img-circle user-img">
+                      <img src="{{ asset(Auth::guard('doctor')->user()->image) }}" alt="user-img" class="img-circle user-img">
                   </a>
 
                   <ul class="dropdown-menu dropdown-menu-right arrow-dropdown-menu arrow-menu-right user-list notify-list">

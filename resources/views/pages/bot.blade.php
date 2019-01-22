@@ -81,7 +81,17 @@
 
     <!--====== profile main =======-->
 	<div  id="app">
-		<bot></bot>
+		<bot
+		:gid="{
+			{{-- 'doctor':{{$doctor}}, --}}
+			{{-- 'appointment':{{$appointmentInfo}}, --}}
+			'user_id':{{(Auth::guard()->check())? Auth::user()->id : 0}}}" >
+			{{--  (Auth::user->check())? Auth::user()->id : 0 --}}
+			
+		
+		
+		
+		></bot>
 		<h1>
 	 </div>
 	<!--====== profile main =======-->

@@ -93,12 +93,15 @@
                                                    </th>
                                                    <td>
                                                        <h5 class="m-0">{{item.name}}</h5>
-                                                       <p class="m-0 text-muted font-13"><small>Programmer</small></p>
+                                                       <p class="m-0 text-muted font-13"><small>User</small></p>
                                                    </td>
                                                    <td>{{item.email}}</td>
                                                    <td>{{item.date}}</td>
                                                    <td v-if="(item.status==1)"><button type="button" name='change' class="btn btn-success">Approved</button></td>
-                                                   <td v-if="(item.status==0)"><button type="button" name='change' @click="approveAppointment(item.id)" class="btn btn-danger">Click Here to Approve</button></td>
+                                                   <td v-if="(item.status==0)">
+                                                        <div class="button_one"><button type="button" name='change' @click="approveAppointment(item.id)" class="btn btn-warning text-dark ">Click Here to Approve</button></div>
+                                                        <div class="button_two"><button v-if="(item.status==0)"  name='change' @click="deleteAppointment(item.id)" class="btn btn-danger">Cancle Appointment</button></div>
+                                                    </td>
                                                </tr>
                                                    
                                            </tbody>
@@ -150,23 +153,30 @@ export default {
               
         },
        async approveAppointment(id){
-            console.log('New Date: '+this.currentTime)
-
-                   
-            
               let AuthData = {
                 'date':this.currentTime,
                 'id':id,
               }
                const info = await this.callApi('post', '/updateStatus',AuthData)
 	        		if(info.status===200){
-
                         this.$store.dispatch('doctor/updateAppointment',info.data.appointment);
               }
               else{
                 let msg = "Error : "+info;
+              }  
+        },
+       async deleteAppointment(id){
+              let AuthData = {
+                'date':this.currentTime,
+                'id':id,
               }
-              
+               const info = await this.callApi('post', '/deleteStatus',AuthData)
+	        		if(info.status===200){
+                        this.$store.dispatch('doctor/updateAppointment',info.data.appointment);
+              }
+              else{
+                let msg = "Error : "+info;
+              }  
         },
   },
 }

@@ -1,6 +1,6 @@
 <div class="col-12 col-sm-3 col-md-3">
   <div class="profile_sidebar box_shadow">
-    <p class="profile_sidebar_title">People Also Viewed</p>
+    <p class="profile_sidebar_title">People Also Suggest</p>
       <!-- items -->
       @foreach ($doctorSuggestion as $item)
       <div class="profile_sidebar_all dis">

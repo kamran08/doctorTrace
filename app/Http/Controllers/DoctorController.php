@@ -43,6 +43,15 @@ class DoctorController extends Controller
             'appointment' => $appointment,
         ],200);
     }
+    public function deleteStatus(Request $request){
+        $appointmentinfo = Appointment::find($request->id);
+        
+        $appointmentinfo->delete();
+        $appointment= $this->dashBoardFetchData($request->date);
+        return response()->json([
+            'appointment' => $appointment,
+        ],200);
+    }
 
 
     public function dashBoardFetchData($date){

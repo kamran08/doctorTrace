@@ -86,73 +86,109 @@
                                            </thead>
                                            <tbody>
                                                <tr>
-                                                   <td>Saturday</td>
+                                                   <td><h5 class="m-0">Saturday</h5></td>
+                                                    
                                                    <td><TimePicker type="time" :value="sunTimeStart" placeholder="Select time" style="width: 168px"></TimePicker></td>
-                                                   <td><TimePicker type="time" :value="sunTimeStart" placeholder="Select time" style="width: 168px"></TimePicker></td>
-                                                   <td>20</td>
-                                                   <td>30</td>
-                                                   <td>No</td>
-                                                   <td><Button type="success">Change</Button></td>
+                                                   <td><TimePicker type="time" :value="sunTimeEnd" placeholder="Select time" style="width: 168px"></TimePicker></td>
+                                                   <td><InputNumber :max="60" :min="1" value="20"></InputNumber></td>
+                                                   <td><InputNumber :max="60" :min="1" value="15"></InputNumber></td>
+                                                   
+                                                   <td><Select value = "No">
+                                                            <Option value="Yes">Yes</Option>
+                                                            <Option value="No">No</Option>
+                                                        </Select>
+                                                    </td>
+                                                   <td><Button @click="change"  type="success">Change</Button></td>
                                                
                                                </tr>
                                                <tr>
-                                                   <td>Sunday</td>
+                                                   
+                                                   <td><h5 class="m-0">Sunday</h5></td>
                                                    <td><TimePicker type="time" :value="sunTimeStart" placeholder="Select time" style="width: 168px"></TimePicker></td>
-                                                   <td><TimePicker type="time" :value="sunTimeStart" placeholder="Select time" style="width: 168px"></TimePicker></td>
-                                                   <td>20</td>
-                                                   <td>30</td>
-                                                   <td>No</td>
-                                                   <td><Button type="success">Change</Button></td>
+                                                   <td><TimePicker type="time" :value="sunTimeEnd" placeholder="Select time" style="width: 168px"></TimePicker></td>
+                                                   <td><InputNumber :max="60" :min="1" value=20></InputNumber></td>
+                                                   <td><InputNumber :max="60" :min="1" value=15></InputNumber></td>
+                                                    <td><Select value = "No">
+                                                            <Option value="Yes">Yes</Option>
+                                                            <Option value="No">No</Option>
+                                                        </Select>
+                                                    </td>
+                                                   <td><Button @click="change"  type="success">Change</Button></td>
                                                
                                                </tr>
                                                <tr>
-                                                   <td>Monday</td>
+                                                   
+                                                    <td><h5 class="m-0">Monday</h5></td>
                                                   <td><TimePicker type="time" :value="sunTimeStart" placeholder="Select time" style="width: 168px"></TimePicker></td>
-                                                   <td><TimePicker type="time" :value="sunTimeStart" placeholder="Select time" style="width: 168px"></TimePicker></td>
-                                                   <td>20</td>
-                                                   <td>30</td>
-                                                   <td>No</td>
-                                                   <td><Button type="success">Change</Button></td>
+                                                   <td><TimePicker type="time" :value="sunTimeEnd" placeholder="Select time" style="width: 168px"></TimePicker></td>
+                                                   <td><InputNumber :max="60" :min="1" value="20"></InputNumber></td>
+                                                   <td><InputNumber :max="60" :min="1" value="15"></InputNumber></td>
+                                                    <td><Select value = "No">
+                                                            <Option value="Yes">Yes</Option>
+                                                            <Option value="No">No</Option>
+                                                        </Select>
+                                                    </td>
+                                                   <td><Button @click="change"  type="success">Change</Button></td>
                                                
                                                </tr>
                                                <tr>
-                                                   <td>Tuesday</td>
+                                                   
+                                                    <td><h5 class="m-0">Tuesday</h5></td>
                                                    <td><TimePicker type="time" :value="sunTimeStart" placeholder="Select time" style="width: 168px"></TimePicker></td>
-                                                   <td><TimePicker type="time" :value="sunTimeStart" placeholder="Select time" style="width: 168px"></TimePicker></td>
-                                                   <td>20</td>
-                                                   <td>30</td>
-                                                   <td>No</td>
-                                                   <td><Button type="success">Change</Button></td>
+                                                   <td><TimePicker type="time" :value="sunTimeEnd" placeholder="Select time" style="width: 168px"></TimePicker></td>
+                                                   <td><InputNumber :max="60" :min="1" value="20"></InputNumber></td>
+                                                   <td><InputNumber :max="60" :min="1" value="15"></InputNumber></td>
+                                                    <td><Select value = "No">
+                                                            <Option value="Yes">Yes</Option>
+                                                            <Option value="No">No</Option>
+                                                        </Select>
+                                                    </td>
+                                                   <td><Button @click="change"  type="success">Change</Button></td>
                                                
                                                </tr>
                                                <tr>
-                                                   <td>Wednesday</td>
+                                                   
+                                                    <td><h5 class="m-0">Wednesday</h5></td>
                                                   <td><TimePicker type="time" :value="sunTimeStart" placeholder="Select time" style="width: 168px"></TimePicker></td>
-                                                   <td><TimePicker type="time" :value="sunTimeStart" placeholder="Select time" style="width: 168px"></TimePicker></td>
-                                                   <td>20</td>
-                                                   <td>30</td>
-                                                   <td>No</td>
-                                                   <td><Button type="success">Change</Button></td>
+                                                   <td><TimePicker type="time" :value="sunTimeEnd" placeholder="Select time" style="width: 168px"></TimePicker></td>
+                                                   <td><InputNumber :max="60" :min="1" value="20"></InputNumber></td>
+                                                   <td><InputNumber :max="60" :min="1" value="15"></InputNumber></td>
+                                                    <td><Select value = "No">
+                                                            <Option value="Yes">Yes</Option>
+                                                            <Option value="No">No</Option>
+                                                        </Select>
+                                                    </td>
+                                                   <td><Button @click="change"  type="success">Change</Button></td>
                                                
                                                </tr>
                                                <tr>
-                                                   <td>Thusday</td>
+                                                   
+                                                    <td><h5 class="m-0">Thusday</h5></td>
                                                    <td><TimePicker type="time" :value="sunTimeStart" placeholder="Select time" style="width: 168px"></TimePicker></td>
-                                                   <td><TimePicker type="time" :value="sunTimeStart" placeholder="Select time" style="width: 168px"></TimePicker></td>
-                                                   <td>20</td>
-                                                   <td>30</td>
-                                                   <td>No</td>
-                                                   <td><Button type="success">Change</Button></td>
+                                                   <td><TimePicker type="time" :value="sunTimeEnd" placeholder="Select time" style="width: 168px"></TimePicker></td>
+                                                   <td><InputNumber :max="60" :min="1" value="20"></InputNumber></td>
+                                                   <td><InputNumber :max="60" :min="1" value="15"></InputNumber></td>
+                                                    <td><Select value = "No">
+                                                            <Option value="Yes">Yes</Option>
+                                                            <Option value="No">No</Option>
+                                                        </Select>
+                                                    </td>
+                                                   <td><Button @click="change"  type="success">Change</Button></td>
                                                
                                                </tr>
                                                <tr>
-                                                   <td>Friday</td>
+                                                   
+                                                    <td><h5 class="m-0">Friday</h5></td>
                                                   <td><TimePicker type="time" :value="sunTimeStart" placeholder="Select time" style="width: 168px"></TimePicker></td>
-                                                   <td><TimePicker type="time" :value="sunTimeStart" placeholder="Select time" style="width: 168px"></TimePicker></td>
-                                                   <td>20</td>
-                                                   <td>30</td>
-                                                   <td>No</td>
-                                                   <td><Button type="success">Change</Button></td>
+                                                   <td><TimePicker type="time" :value="sunTimeEnd" placeholder="Select time" style="width: 168px"></TimePicker></td>
+                                                   <td><InputNumber :max="60" :min="1" value="20"></InputNumber></td>
+                                                   <td><InputNumber :max="60" :min="1" value="15"></InputNumber></td>
+                                                    <td><Select value = "No">
+                                                            <Option value="Yes">Yes</Option>
+                                                            <Option value="No">No</Option>
+                                                        </Select>
+                                                    </td>
+                                                   <td><Button @click="change" type="success">Change</Button></td>
                                                
                                                </tr>
                                            </tbody>
@@ -179,6 +215,7 @@ export default {
             msg: 'DashBoard',
             currentTime: (new Date().toISOString().slice(0,10)),
             sunTimeStart:  '05:00:00',
+            sunTimeEnd:  '10:00:00',
             
             
         }
@@ -223,7 +260,12 @@ export default {
               }
               
         },
+
+        change(){
+            this.s("Successfully Changed")
+        }
   },
+
 }
 </script>
 
